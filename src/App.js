@@ -11,7 +11,7 @@ const HorizontalScrollOnVerticalScroll = () => {
     // Check if there's vertical scroll ( deltaY != 0) and apply horizontal scroll
     if (e.deltaY !== 0) {
       //e.preventDefault();
-      containerRef.current.scrollLeft += e.deltaY * 0.5;
+      containerRef.current.scrollLeft += e.deltaY * 0.6;
     }
   };
 
