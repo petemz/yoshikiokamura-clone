@@ -1,9 +1,10 @@
 import WelcomeArt from "./WelcomeArt"
 import Indicator from "./SectionIndicator"
+import Art from "./Arts"
 
 const Home = () => {
     return  (
-        <div className="flex z-0">
+        <div className="flex z-0 pr-96">
             <WelcomeArt />
 
             <div className="w-[555px] px-14 relative">
@@ -17,6 +18,10 @@ const Home = () => {
                     </div>
                 </div>
             </div>
+
+            <Indicator />
+
+            <Art />
 
             <Indicator />
         </div>
