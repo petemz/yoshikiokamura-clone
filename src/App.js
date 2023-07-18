@@ -3,6 +3,7 @@ import React, { useRef, useEffect, useState } from 'react';
 //import Waver from "./Components/Test";
 //import Third from "./Components/Third";
 import Home from "./Components/Home";
+import NavBar from './Components/Nav';
 
 const HorizontalScrollOnVerticalScroll = () => {
   const containerRef = useRef(null);
@@ -59,9 +60,8 @@ const HorizontalScrollOnVerticalScroll = () => {
       onMouseMove={handleMouseMove}
       onMouseUp={handleMouseUp}
     >
-      <div className="bg-white absolute top-0 left-0 z-50 w-16 h-full ">
-        {/*sidebar*/}
-      </div>
+
+      <NavBar />
       
       <Home />
 
