@@ -4,7 +4,7 @@ import Art from "./Arts"
 
 const Home = () => {
     return  (
-        <div className="flex z-0 pr-96">
+        <div className="flex h-full z-0 pr-96">
             <WelcomeArt />
 
             <div className="w-[555px] px-14 relative">

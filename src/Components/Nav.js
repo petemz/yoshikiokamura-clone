@@ -1,6 +1,10 @@
-import { useState } from "react"
+import { useState, useContext } from "react"
+import { Context } from "../Context"
+import { Link } from "react-router-dom"
 
 const NavBar = () => {
+    const { currentPage } = useContext(Context)
+
     const [isNav, setIsNav] = useState()
 
     const handleNav = () => {
@@ -9,14 +13,26 @@ const NavBar = () => {
 
     const links = ['gallery', 'projects', 'books', 'info', 'news']
 
+    const arrowRight = 
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+            <path d="M10 50 L90 50 M70 25 L90 50 L70 75" fill="none" stroke="black" stroke-width="10" />
+        </svg>
+  
     return (
         <>
             {isNav ? 
-                <div className="w-72 px-8 py-3 flex flex-col justify-end bg-white absolute top-0 left-0 z-50 h-full border-r-2 border-zinc-100">
+                <div className="w-72 px-6 py-3 flex flex-col justify-end bg-white absolute top-0 left-0 z-50 h-full border-r-2 border-zinc-100">
                     <ul className="text-[30px] font-light mb-[35%]">
-                        {links.map(link => 
-                            <li className="my-3 uppercase">
-                                <a href={link}>{link}</a>
+                        {links.map((link, index) => 
+                            <li className="my-3 px-2 w-max group uppercase" key={index}>
+                                <Link className="flex items-center" to={link === 'gallery' ? '/' : `/${link}`}>
+                                    <div className="mr-1 hidden group-hover:block w-5">
+                                            {arrowRight}
+                                        </div>
+                                        <span className="group-hover:font-normal">{link}</span>
+                                </Link>
+                                    
+                            
                             </li>
                         )} 
                     </ul>
