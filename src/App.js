@@ -1,19 +1,33 @@
-import React, { useRef } from 'react';
+import React, { useRef, useEffect } from 'react';
 //import WaveAnimation from "./Components/Waves";
 //import Waver from "./Components/Test";
 //import Third from "./Components/Third";
 import Home from "./Components/Home";
 
 const HorizontalScrollOnVerticalScroll = () => {
-  const containerRef = useRef(null);
+  const containerRef = useRef(null)
+
+  useEffect(() => {
+    //Disabling horizontal scroll event from touchpad
+    const handleWheel = (e) => {
+      if (e.deltaX !== 0) {
+        e.stopPropagation()
+        e.preventDefault()
+      }
+    }
+
+    containerRef.current.addEventListener('wheel', handleWheel, { passive: false });
+
+    return () => {
+      containerRef.current.removeEventListener('wheel', handleWheel, { passive: false });
+    };
+  }, []);
 
   const handleScroll = (e) => {
-    // Check if there's vertical scroll ( deltaY != 0) and apply horizontal scroll
     if (e.deltaY !== 0) {
-      //e.preventDefault();
-      containerRef.current.scrollLeft += e.deltaY * 0.6;
+      containerRef.current.scrollLeft += e.deltaY * 0.8
     }
-  };
+  }
 
   return (
     <div

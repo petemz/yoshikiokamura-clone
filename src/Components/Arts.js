@@ -52,10 +52,7 @@ const Art = () => {
         {name: 'summer wave', img: art3, available: true},
         {name: 'blue storm', img: art4, available: true},
         {name: 'hydrangea', img: art5, available: true},
-        {name: 'ruby', img: art6, available: true}
     ]
-
-    console.log(items.length)
 
     return (
         <div className="flex w-max px-60">
