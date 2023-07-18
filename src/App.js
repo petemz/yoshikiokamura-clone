@@ -69,7 +69,7 @@ const HorizontalScrollOnVerticalScroll = () => {
       <NavBar />
       
 
-      <div className="h- bg-red-500">
+      <div className="w-full">
         <Routes>
           <Route exact path="/"
             element={<Home />}
