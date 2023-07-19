@@ -53,12 +53,12 @@ const NavBar = () => {
 
                         <div className="my-6">
                             <p className="text-2xl font-normal mb-1">SNS</p>
-                            <p><a href="#">Twitter</a> / <a href="#">Instagram</a> / <a href="#">Weibo</a></p>
+                            <p><a href="https://twitter.com/sashimimoyashi">Twitter</a> / <a href="https://www.instagram.com/sashimimoyashi/">Instagram</a> / <a href="https://weibo.com/p/1005057439829686/photos">Weibo</a></p>
                         </div>
 
                         <div className="my-5">
                             <p className="text-2xl font-normal mb-1">Store</p>
-                            <p><a href="#">Booth</a> / <a href="#">Suzuri</a></p>
+                            <p><a href="https://sashimimoyashi.booth.pm/">Booth</a> / <a href="https://suzuri.jp/sashimimoyashi/">Suzuri</a></p>
                         </div>
                     </div>
 
