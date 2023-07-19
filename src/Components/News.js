@@ -27,9 +27,9 @@ const News = () => {
             <h1 className="text-7xl font-semibold">NEWS</h1>
             
             <ul>
-                {news.map(item => {
+                {news.map((item, index) => {
                     return(
-                        <li className="my-12 flex tracking-wide">
+                        <li className="my-12 flex tracking-wide" key={index}>
                             <p className="text-zinc-400">{item.date}</p>
                             <p className="w-max pb-3 ml-8 border-b border-black">{item.intro}</p>
                         </li>

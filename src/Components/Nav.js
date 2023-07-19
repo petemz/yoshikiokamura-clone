@@ -3,19 +3,24 @@ import { Context } from "../Context"
 import { Link } from "react-router-dom"
 
 const NavBar = () => {
-    const { currentPage } = useContext(Context)
+    const { currentPage, setCurrentPage } = useContext(Context)
 
-    const [isNav, setIsNav] = useState()
-
-    const handleNav = () => {
-        setIsNav(!isNav)
-    }
+    const [isNav, setIsNav] = useState(false)
 
     const links = ['gallery', 'projects', 'books', 'info', 'news']
 
+    const handleLink = (page) => {
+        setCurrentPage(page)
+        setIsNav(false)
+
+        console.log(page)
+    }
+
+    console.log(currentPage)
+
     const arrowRight = 
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
-            <path d="M10 50 L90 50 M70 25 L90 50 L70 75" fill="none" stroke="black" stroke-width="13" />
+            <path d="M10 50 L90 50 M70 25 L90 50 L70 75" fill="none" stroke="black" strokeWidth="13" />
         </svg>
   
     return (
@@ -25,10 +30,12 @@ const NavBar = () => {
                     <ul className="text-[30px] font-light mb-[35%]">
                         {links.map((link, index) => 
                             <li 
-                                className="my-1 px-2 w-max group uppercase" key={index}
-                                onClick={() => setIsNav(false)}    
+                                className="my-1 px-2 w-max group uppercase" key={index}    
                             >
-                                <Link className="flex items-center" to={link === 'gallery' ? '/' : `/${link}`}>
+                                <Link 
+                                    className="flex items-center" to={link === 'gallery' ? '/' : `/${link}`}
+                                    onClick={() => handleLink(link)}    
+                                >
                                     <div className="mr-1 hidden group-hover:block w-5">
                                         {arrowRight}
                                     </div>
