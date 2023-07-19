@@ -36,10 +36,12 @@ const NavBar = () => {
                                     className="flex items-center" to={link === 'gallery' ? '/' : `/${link}`}
                                     onClick={() => handleLink(link)}    
                                 >
-                                    <div className="mr-1 hidden group-hover:block w-5">
-                                        {arrowRight}
-                                    </div>
-                                    <span className={`group-hover:font-normal ${currentPage === link && 'font-bold text-zinc-300'}`}>{link}</span>
+                                    {currentPage !== link && 
+                                        <div className="mr-1 hidden group-hover:block w-5">
+                                            {arrowRight}
+                                        </div>
+                                    }
+                                    <span className={`${currentPage === link ? 'font-bold text-zinc-300' : 'group-hover:font-normal'}`}>{link}</span>
                                 </Link>
                             </li>
                         )} 
