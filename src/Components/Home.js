@@ -10,27 +10,27 @@ const Home = () => {
     const [scrollLeft, setScrollLeft] = useState(0);
 
     useEffect(() => {
-    // Disabling horizontal scroll event from touchpad
-    const handleXScroll = (e) => {
-        if (e.deltaX !== 0) {
-        e.stopPropagation()
-        e.preventDefault()
+        // Disabling horizontal scroll event from touchpad
+        const handleXScroll = (e) => {
+            if (e.deltaX !== 0) {
+            e.stopPropagation()
+            e.preventDefault()
+            }
         }
-    }
 
-    const current = xScrollRef.current
+        const current = xScrollRef.current
 
-    xScrollRef.current.addEventListener('wheel', handleXScroll, { passive: false })
+        xScrollRef.current.addEventListener('wheel', handleXScroll, { passive: false })
 
-    return () => {
-        current.removeEventListener('wheel', handleXScroll, { passive: false })
-    }
+        return () => {
+            current.removeEventListener('wheel', handleXScroll, { passive: false })
+        }
     }, [])
 
     const handleScroll = (e) => {
-    if (e.deltaY !== 0) {
-        xScrollRef.current.scrollLeft += e.deltaY
-    }
+        if (e.deltaY !== 0) {
+            xScrollRef.current.scrollLeft += e.deltaY
+        }
     }
 
     //Custom Drag event to scroll through the app

@@ -1,11 +1,29 @@
+import { useRef } from "react"
+
 const Info = () => {
+    const fixedRef = useRef(null)
+    const scrollableRef = useRef(null)
+
+    const handleScroll = (e) => {
+        if (e.deltaY !== 0) {
+            scrollableRef.current.scrollTop += e.deltaY
+        }
+    }
+
     return (
-        <div className="w-full pl-20 leading-loose tracking-wide p-4 grid grid-cols-[45%_55%] justify-between items-center">
-            <div className="flex items-center [word-spacing:15px] tracking-[10px] text-[1.5rem]">
+        <div className="w-full pl-20 leading-loose tracking-wide p-4 grid grid-cols-[40%_50%] justify-between items-center">
+            <div 
+                className="flex h-full justify-center items-center [word-spacing:15px] tracking-[0.8vw] text-[2.2vw]"
+                ref={fixedRef}
+                onWheel={handleScroll}
+            >
                 <p><span className="font-bold ">YOSHIKI</span> OKAMURA</p>
             </div>
 
-            <div className="h-full py-32 text-zinc-500 overflow-y-scroll">
+            <div 
+                className="h-full py-32 text-zinc-500 overflow-y-scroll"
+                ref={scrollableRef}
+            >
                 <h1 className="text-5xl text-black mb-8">Yoshiki Okamura</h1>
                 <p className="mb-5 text-black font-medium">Born in Tokyo in 1996. Graduated from Musashino Art University in 2019.</p>
 
