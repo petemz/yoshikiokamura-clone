@@ -20,6 +20,9 @@ code {
   display: none;
 }
 
+* {
+  flex-shrink: 0;
+}
 
 #grad {
   background: hsla(0, 0%, 100%, 1);

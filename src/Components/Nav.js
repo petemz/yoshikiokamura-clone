@@ -39,7 +39,7 @@ const NavBar = () => {
                                     <div className="mr-1 hidden group-hover:block w-5">
                                         {arrowRight}
                                     </div>
-                                    <span className="group-hover:font-normal">{link}</span>
+                                    <span className={`group-hover:font-normal ${currentPage === link && 'font-bold text-zinc-300'}`}>{link}</span>
                                 </Link>
                             </li>
                         )} 
@@ -64,8 +64,8 @@ const NavBar = () => {
 
                     <button onClick={() => setIsNav(false)} className="w-8 p-1 absolute top-6 right-1">
                         <svg className="" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
-                            <line x1="0" y1="0" x2="100" y2="100" stroke="black" stroke-width="12" />
-                            <line x1="0" y1="100" x2="100" y2="0" stroke="black" stroke-width="12" />
+                            <line x1="0" y1="0" x2="100" y2="100" stroke="black" strokeWidth="12" />
+                            <line x1="0" y1="100" x2="100" y2="0" stroke="black" strokeWidth="12" />
                         </svg>
                     </button>
                 </div>
