@@ -11,10 +11,21 @@ const Books = () => {
     const { setCurrentPage } = useContext(Context)
     const [isContact, setIsContact] = useState(false)
     const [contactBook, setContactBook] = useState('')
+    const [isCopied, setIsCopied] = useState(false)
 
     const handleContactTab = (title) => {
         setIsContact(true)
         setContactBook(title)
+    }
+
+    const handleTabClose = () => {
+        setIsContact(false)
+        setIsCopied(false)
+    }
+
+    const handleCopy = () => {
+        setIsCopied(true)
+        navigator.clipboard.writeText('Name:\nCountry:\nShipping Address:\nBook Title:')
     }
 
     const books = [
@@ -67,9 +78,9 @@ const Books = () => {
 
         const xDiff = e.clientX - startX
             xScrollRef.current.scrollLeft = scrollLeft - xDiff
-        }
+    }
 
-        const handleMouseUp = () => {
+    const handleMouseUp = () => {
         setIsDragging(false)
     }
 
@@ -105,7 +116,6 @@ const Books = () => {
                             <span><a href={book.link}>Booth</a></span>
                         </div>
                     </div>
-                 
                 )}
             )}
 
@@ -113,13 +123,14 @@ const Books = () => {
             {isContact && //Contact Tab
                 <div className="h-full flex fixed top-0 left-0 w-screen backdrop-blur-[2px]">
                     <div className="relative flex justify-end items-center w-1/2">
-                        <button onClick={() => setIsContact(false)} className="w-8 p-1 mr-[14%]">
+                        <button onClick={() => handleTabClose()} className="w-8 p-1 mr-[14%]">
                             <svg className="" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
                                 <line x1="0" y1="0" x2="100" y2="100" stroke="black" strokeWidth="12" />
                                 <line x1="0" y1="100" x2="100" y2="0" stroke="black" strokeWidth="12" />
                             </svg>
                         </button>
                     </div>
+
                     <div className="text-[17px] font-light h-full w-1/2 p-8 border-l border-black bg-white">
                         <h2 className="text-2xl mb-4">How to buy</h2>
                         <p className="mb-5">You can buy books through email contact. Press "Open mail app" at the bottom to open email application. Or copy my email address and the required information template in the box below.</p>
@@ -130,12 +141,24 @@ const Books = () => {
                             <p>Shipping Address:</p>
                             <p>Book Title: {contactBook}</p>
 
-                            <button className="absolute text-base font-normal right-3 top-1">Copy</button>
+                            <button 
+                                className="absolute text-base font-normal right-3 top-1"
+                                onClick={() =>  handleCopy()}
+                                disabled={isCopied}
+                            >
+                                <span>{isCopied ? 'Copied!' : 'Copy'}</span>
+                            </button>
                         </div>
 
                         <div className="font-normal">
-                            <p className="mb-2"><a href="sashimimoyashi@gmail.com">Open mail app</a></p>
-                            <p href="">Copy email address</p>
+                            <p className="mb-3"><a href="sashimimoyashi@gmail.com">Open mail app</a></p>
+                            <button 
+                                onClick={() => {
+                                    navigator.clipboard.writeText('sashimimoyashi@gmail.com')
+                                }}
+                            >
+                                <span>Copy email address</span>
+                            </button>
                         </div>
                     </div>
 
