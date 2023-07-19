@@ -15,8 +15,10 @@ const Indicator = () => {
                 {indicators.map((indicator, index) => {
                     return(
                         <li key={index} className="my-3 hover:text-black">
-                           <span className="mr-8">{indicator.section}</span>
-                           <span>{indicator.item}</span> 
+                            <a href="#">
+                                <span className="mr-8">{indicator.section}</span>
+                                <span>{indicator.item}</span>  
+                            </a>
                         </li>
                         
                     )}

@@ -1,5 +1,5 @@
-import { useRef, useEffect, useState } from 'react';
-import { Routes, Route, Link } from "react-router-dom";
+//import { useRef, useEffect, useState } from 'react';
+import { Routes, Route } from "react-router-dom";
 //import WaveAnimation from "./Components/Waves";
 //import Waver from "./Components/Test";
 //import Third from "./Components/Third";
@@ -9,6 +9,7 @@ import Books from './Components/Books';
 import Info from './Components/Info';
 import News from './Components/News';
 import NavBar from './Components/Nav';
+import AnimatedCursor from "react-animated-cursor"
 
 const App = () => {
 
@@ -39,6 +40,25 @@ const App = () => {
           element={<News />}
         />
       </Routes>
+
+      <AnimatedCursor 
+        innerSize={9}
+        outerSize={0}
+        innerScale={4}
+        outerScale={0}
+        outerAlpha={0}
+        hasBlendMode={true}
+        innerStyle={{
+          backgroundColor: 'rgba(0, 0, 0, 0.1)'
+        }}
+        outerStyle={{
+          border: '3px solid #000'
+        }}
+        clickables={[
+          'a',
+          'button'
+        ]}
+      />
 
       {/*
         <div className="h-full inline-block w-[700vw] absolute top-0 bg-slate-900" >
