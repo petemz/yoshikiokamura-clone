@@ -49,10 +49,10 @@ const App = () => {
         outerAlpha={0}
         hasBlendMode={true}
         innerStyle={{
-          backgroundColor: 'rgba(0, 0, 0, 0.1)'
+          backgroundColor: 'rgba(0, 0, 0, 0.1)', border: '1px solid #000'
         }}
         outerStyle={{
-          border: '3px solid #000'
+          border: '1px solid #000'
         }}
         clickables={[
           'a',
