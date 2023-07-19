@@ -15,27 +15,25 @@ const NavBar = () => {
 
     const arrowRight = 
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
-            <path d="M10 50 L90 50 M70 25 L90 50 L70 75" fill="none" stroke="black" stroke-width="10" />
+            <path d="M10 50 L90 50 M70 25 L90 50 L70 75" fill="none" stroke="black" stroke-width="13" />
         </svg>
   
     return (
         <>
             {isNav ? 
-                <div className="w-72 px-6 py-3 flex flex-col justify-end bg-white absolute top-0 left-0 z-50 h-full border-r-2 border-zinc-100">
+                <div className="w-72 px-6 py-3 flex flex-col justify-end bg-white fixed top-0 left-0 z-50 h-full border-r-2 border-zinc-100">
                     <ul className="text-[30px] font-light mb-[35%]">
                         {links.map((link, index) => 
                             <li 
-                                className="my-3 px-2 w-max group uppercase" key={index}
+                                className="my-1 px-2 w-max group uppercase" key={index}
                                 onClick={() => setIsNav(false)}    
                             >
                                 <Link className="flex items-center" to={link === 'gallery' ? '/' : `/${link}`}>
                                     <div className="mr-1 hidden group-hover:block w-5">
-                                            {arrowRight}
-                                        </div>
-                                        <span className="group-hover:font-normal">{link}</span>
+                                        {arrowRight}
+                                    </div>
+                                    <span className="group-hover:font-normal">{link}</span>
                                 </Link>
-                                    
-                            
                             </li>
                         )} 
                     </ul>
@@ -65,7 +63,7 @@ const NavBar = () => {
                     </button>
                 </div>
             :
-                <div className="bg-white flex justify-center items-center absolute top-0 left-0 z-50 w-16 h-full border-r-2 border-zinc-100">
+                <div className="bg-white flex justify-center items-center fixed top-0 left-0 z-50 w-16 h-full border-r-2 border-zinc-100">
                     <button onClick={() => setIsNav(true)} className="w-14">
                         <svg className=" rounded-full hover:border-2 border-black" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
                             <g transform="rotate(90 50 50)">

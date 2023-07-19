@@ -23,19 +23,19 @@ const News = () => {
     ]
 
     return (
-        <div className="w-full h-max pl-32 p-16">
-            <h1 className="text-6xl">NEWS</h1>
-
-            <div>
-                <ul>
-                    {news.map(item => {
-                        return(
-                            <li className="my-4">{item.intro}</li>
-                        )}
+        <div className="w-full h-max pl-24 pb-14 p-3">
+            <h1 className="text-7xl font-semibold">NEWS</h1>
+            
+            <ul>
+                {news.map(item => {
+                    return(
+                        <li className="my-12 flex tracking-wide">
+                            <p className="text-zinc-400">{item.date}</p>
+                            <p className="w-max pb-3 ml-8 border-b border-black">{item.intro}</p>
+                        </li>
                     )}
-                    
-                </ul>
-            </div>
+                )}
+            </ul>
         </div>
     )
 }

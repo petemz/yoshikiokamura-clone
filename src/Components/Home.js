@@ -1,10 +1,65 @@
+import { useState, useEffect, useRef } from "react"
 import WelcomeArt from "./WelcomeArt"
 import Indicator from "./SectionIndicator"
 import Art from "./Arts"
 
 const Home = () => {
+    const xScrollRef = useRef(null);
+    const [isDragging, setIsDragging] = useState(false);
+    const [startX, setStartX] = useState(0);
+    const [scrollLeft, setScrollLeft] = useState(0);
+
+    useEffect(() => {
+    // Disabling horizontal scroll event from touchpad
+    const handleXScroll = (e) => {
+        if (e.deltaX !== 0) {
+        e.stopPropagation()
+        e.preventDefault()
+        }
+    }
+
+    const current = xScrollRef.current
+
+    xScrollRef.current.addEventListener('wheel', handleXScroll, { passive: false })
+
+    return () => {
+        current.removeEventListener('wheel', handleXScroll, { passive: false })
+    }
+    }, [])
+
+    const handleScroll = (e) => {
+    if (e.deltaY !== 0) {
+        xScrollRef.current.scrollLeft += e.deltaY
+    }
+    }
+
+    //Custom Drag event to scroll through the app
+    const handleMouseDown = (e) => {
+        setIsDragging(true)
+        setStartX(e.clientX)
+        setScrollLeft(xScrollRef.current.scrollLeft)
+    };
+
+    const handleMouseMove = (e) => {
+        if (!isDragging) return
+
+        const xDiff = e.clientX - startX
+            xScrollRef.current.scrollLeft = scrollLeft - xDiff
+        }
+
+        const handleMouseUp = () => {
+        setIsDragging(false)
+    }
+
     return  (
-        <div className="flex w-full h-full z-0 pr-96">
+        <div 
+            className="flex bg-white w-full h-screen overscroll-x-auto overflow-y-hidden whitespace-nowrap z-0 pr-96"
+            ref={xScrollRef}
+            onWheel={handleScroll}
+            onMouseDown={handleMouseDown}
+            onMouseMove={handleMouseMove}
+            onMouseUp={handleMouseUp} 
+        >
             <WelcomeArt />
 
             <div className="w-[555px] px-14 relative">
