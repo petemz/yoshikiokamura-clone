@@ -1,4 +1,5 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, useContext } from "react";
+import { Context } from "../Context";
 import book1 from "../Assets/Books/book-1.webp"
 import book2 from "../Assets/Books/book-2.webp"
 import book3 from "../Assets/Books/book-3.webp"
@@ -7,6 +8,7 @@ import book5 from "../Assets/Books/book-5.webp"
 import book6 from "../Assets/Books/book-6.webp"
 
 const Books = () => {
+    const { setCurrentPage } = useContext(Context)
     const [isContact, setIsContact] = useState(false)
     const [contactBook, setContactBook] = useState('')
 
@@ -71,9 +73,13 @@ const Books = () => {
         setIsDragging(false)
     }
 
+    useEffect(() => {
+        setCurrentPage('books')
+    })
+
     return (
         <div
-            className="flex items-center relative w-full h-screen overscroll-x-auto overflow-y-hidden p z-0 px-20"
+            className="overscroll-x-auto overflow-y-hidden flex items-center relative w-full h-screen p z-0 px-20"
             ref={xScrollRef}
             onWheel={handleScroll}
             onMouseDown={handleMouseDown}
@@ -90,7 +96,7 @@ const Books = () => {
                             <span>{book.year}</span>
                         </div>
 
-                        <div className="w-[500px] p-4 flex justify-center h-72 my-2 shadow-[inset_0_0_8px_2px_rgba(0,0,0,0.1)]">
+                        <div className="w-[500px] p-4 flex justify-center h-72 my-2 shadow-[inset_0_0_12px_4px_rgba(0,0,0,0.08)]">
                             <img src={book.img} alt="" />
                         </div>
 

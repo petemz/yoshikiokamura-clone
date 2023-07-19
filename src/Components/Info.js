@@ -1,6 +1,8 @@
-import { useRef } from "react"
+import { useRef, useContext, useEffect } from "react"
+import { Context } from "../Context"
 
 const Info = () => {
+    const { setCurrentPage } = useContext(Context)
     const fixedRef = useRef(null)
     const scrollableRef = useRef(null)
 
@@ -9,6 +11,10 @@ const Info = () => {
             scrollableRef.current.scrollTop += e.deltaY
         }
     }
+
+    useEffect(() => {
+        setCurrentPage('info')
+    })
 
     return (
         <div className="w-full pl-20 leading-loose tracking-wide p-4 grid grid-cols-[40%_50%] justify-between items-center">

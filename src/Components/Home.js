@@ -1,9 +1,11 @@
-import { useState, useEffect, useRef } from "react"
+import { useState, useEffect, useRef, useContext } from "react"
+import { Context } from "../Context"
 import WelcomeArt from "./WelcomeArt"
 import Indicator from "./SectionIndicator"
 import Art from "./Arts"
 
 const Home = () => {
+    const { setCurrentPage } = useContext(Context)
     const xScrollRef = useRef(null);
     const [isDragging, setIsDragging] = useState(false);
     const [startX, setStartX] = useState(0);
@@ -50,6 +52,10 @@ const Home = () => {
         const handleMouseUp = () => {
         setIsDragging(false)
     }
+
+    useEffect(() => {
+        setCurrentPage('gallery')
+    })
 
     return  (
         <div 

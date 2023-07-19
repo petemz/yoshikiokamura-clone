@@ -1,4 +1,8 @@
+import { useContext, useEffect } from "react"
+import { Context } from "../Context"
+
 const News = () => {
+    const { setCurrentPage } = useContext(Context)
     const news = [
         {intro: 'We will be on stage at Galaxy CG "Carnival Tonight', date: '2023-06-19'},
         {intro: 'I was in charge of the design of Japanese sake "Za"', date: '2023-04-16'},
@@ -21,6 +25,10 @@ const News = () => {
         {intro: 'Opened portfolio site', date: '2021-01-31'},
         {intro: 'Published in Monthly Art Collectors', date: '2020-02028'},
     ]
+
+    useEffect(() => {
+        setCurrentPage('news')
+    })
 
     return (
         <div className="w-full h-max pl-24 pb-14 p-3">

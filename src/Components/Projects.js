@@ -1,4 +1,9 @@
+import { useContext, useEffect } from "react"
+import { Context } from "../Context"
+
 const Projects = () => {
+    const { setCurrentPage } = useContext(Context)
+    
     const projects = [
         { date: '2023', desc: 'Galaxy CG "Carnival Tonight" guest appearance' },
         { date: '2023', desc: 'Sake "Za Kura Junmai Daiginjo" Design Supervision' },
@@ -20,6 +25,11 @@ const Projects = () => {
         { date: '2019', desc: 'Particpated in product design for Korean idol JUN\'s new album' },
         { date: '2019', desc: 'I was in charge of the original soundtrack jacket for "The Rising of the Shield Hero' },
     ]
+
+    useEffect(() => {
+        setCurrentPage('news')
+    })
+
 
     return (
         <div className="w-full h-max pl-24 pb-14 p-3">
