@@ -36,7 +36,13 @@ const Info = () => {
                 <ul className="mb-14">
                     <li className="mb-1 flex">
                         <span className="w-36 block">Contact</span>
-                        <span className="">Copy email</span>
+                        <button 
+                            onClick={() => {
+                                navigator.clipboard.writeText('sashimimoyashi@gmail.com')
+                            }}
+                        >
+                                <span>Copy email</span>
+                        </button>
                     </li>
 
                     <li className="mb-1 flex">

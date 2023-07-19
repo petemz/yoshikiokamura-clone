@@ -12,11 +12,7 @@ const NavBar = () => {
     const handleLink = (page) => {
         setCurrentPage(page)
         setIsNav(false)
-
-        console.log(page)
     }
-
-    console.log(currentPage)
 
     const arrowRight = 
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
@@ -50,7 +46,13 @@ const NavBar = () => {
                     <div className="font-thin">
                         <div className="my-6">
                             <p className="text-2xl font-normal mb-1">Contact</p>
-                            <p className="">Copy email</p>
+                            <button 
+                                onClick={() => {
+                                    navigator.clipboard.writeText('sashimimoyashi@gmail.com')
+                                }}
+                            >
+                                <span>Copy email</span>
+                            </button>
                         </div>
 
                         <div className="my-6">
