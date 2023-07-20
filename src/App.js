@@ -42,17 +42,21 @@ const App = () => {
       </Routes>
 
       <AnimatedCursor 
-        innerSize={9}
-        outerSize={0}
-        innerScale={4}
-        outerScale={0}
+        innerSize={10}
+        outerSize={0.1}
+        innerScale={0}
+        outerScale={350}
         outerAlpha={0}
         hasBlendMode={true}
+        trailingSpeed={1}
+        color="0, 0, 0"
         innerStyle={{
-          backgroundColor: 'rgba(0, 0, 0, 0.1)', border: '1px solid #000'
+          //backgroundColor: 'rgba(0, 0, 0, 0.1)', border: '1px solid #000'
+          border: '1px solid #000'
         }}
         outerStyle={{
-          border: '1px solid #000'
+          border: '1px solid #000',
+          backgroundColor: 'rgba(0, 0, 0, 0.1)',
         }}
         clickables={[
           'a',

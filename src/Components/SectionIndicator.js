@@ -14,10 +14,10 @@ const Indicator = () => {
             <ul className="h-max">
                 {indicators.map((indicator, index) => {
                     return(
-                        <li key={index} className="my-3 hover:text-black">
-                            <a href="#">
-                                <span className="mr-8">{indicator.section}</span>
-                                <span>{indicator.item}</span>  
+                        <li key={index} className=" group hover:text-black">
+                            <a href="-" className="flex py-2 hover:font-normal">
+                                <span className="w-5 text-right pr-6 group-hover:border-black border-r-2">{indicator.section}</span>
+                                <span className="pl-4 w-24 ">{indicator.item}</span>  
                             </a>
                         </li>
                         
@@ -25,7 +25,7 @@ const Indicator = () => {
                 )}
             </ul>
 
-            <div id="grad" className="w-[1.8px] h-full absolute left-[29px]">
+            <div id="grad" className="w-[1.8px] h-full absolute left-[28px]">
                 {/*Gradient divider line*/}
             </div>
         </div>
