@@ -27,13 +27,13 @@ code {
 #grad {
   background: hsla(0, 0%, 100%, 1);
 
-  background: linear-gradient(90deg, hsla(0, 0%, 100%, 1) 18%, hsla(0, 0%, 77%, 1) 36%, hsla(0, 0%, 77%, 1) 64%, hsla(0, 0%, 100%, 1) 82%);
+  background: linear-gradient(90deg, hsla(0, 0%, 100%, 1) 10%, hsla(0, 4%, 95%, 1) 21%, hsla(0, 0%, 89%, 1) 32%, hsla(0, 0%, 89%, 1) 68%, hsla(0, 4%, 95%, 1) 79%, hsla(0, 0%, 100%, 1) 90%);
   
-  background: -moz-linear-gradient(90deg, hsla(0, 0%, 100%, 1) 18%, hsla(0, 0%, 77%, 1) 36%, hsla(0, 0%, 77%, 1) 64%, hsla(0, 0%, 100%, 1) 82%);
+  background: -moz-linear-gradient(90deg, hsla(0, 0%, 100%, 1) 10%, hsla(0, 4%, 95%, 1) 21%, hsla(0, 0%, 89%, 1) 32%, hsla(0, 0%, 89%, 1) 68%, hsla(0, 4%, 95%, 1) 79%, hsla(0, 0%, 100%, 1) 90%);
   
-  background: -webkit-linear-gradient(90deg, hsla(0, 0%, 100%, 1) 18%, hsla(0, 0%, 77%, 1) 36%, hsla(0, 0%, 77%, 1) 64%, hsla(0, 0%, 100%, 1) 82%);
+  background: -webkit-linear-gradient(90deg, hsla(0, 0%, 100%, 1) 10%, hsla(0, 4%, 95%, 1) 21%, hsla(0, 0%, 89%, 1) 32%, hsla(0, 0%, 89%, 1) 68%, hsla(0, 4%, 95%, 1) 79%, hsla(0, 0%, 100%, 1) 90%);
   
-  filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#FFFFFF", endColorstr="#C5C5C5", GradientType=1 );
+  filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#FFFFFF", endColorstr="#F3F2F2", GradientType=1 );
 }
 
 

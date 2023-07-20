@@ -27,7 +27,7 @@ const Projects = () => {
     ]
 
     useEffect(() => {
-        setCurrentPage('news')
+        setCurrentPage('projects')
     })
 
 
