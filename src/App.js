@@ -1,22 +1,22 @@
 //import { useRef, useEffect, useState } from 'react';
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route } from "react-router-dom"
 //import WaveAnimation from "./Components/Waves";
 //import Waver from "./Components/Test";
 //import Third from "./Components/Third";
-import Home from "./Components/Home";
-import Projects from './Components/Projects';
-import Books from './Components/Books';
-import Info from './Components/Info';
-import News from './Components/News';
-import Section1 from './Components/Gallery/Section1';
-import Section2 from './Components/Gallery/Section2';
-import Section3 from './Components/Gallery/Section3';
-import Section4 from './Components/Gallery/Section4';
-import Section5 from './Components/Gallery/Section5';
-import Section6 from './Components/Gallery/Section6';
-import Section7 from './Components/Gallery/Section7';
+import Home from "./Components/Home"
+import Projects from './Components/Projects'
+import Books from './Components/Books'
+import Info from './Components/Info'
+import News from './Components/News'
+import Section1 from './Components/Gallery/Section1'
+import Section2 from './Components/Gallery/Section2'
+import Section3 from './Components/Gallery/Section3'
+import Section4 from './Components/Gallery/Section4'
+import Section5 from './Components/Gallery/Section5'
+import Section6 from './Components/Gallery/Section6'
+import Section7 from './Components/Gallery/Section7'
 
-import NavBar from './Components/Nav';
+import NavBar from './Components/Nav'
 import AnimatedCursor from "react-animated-cursor"
 
 const App = () => {
@@ -81,7 +81,7 @@ const App = () => {
         </div>
       */}
     </div>
-  );
-};
+  )
+}
 
-export default App;
+export default App
