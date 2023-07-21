@@ -21,6 +21,21 @@ import AnimatedCursor from "react-animated-cursor"
 
 const App = () => {
 
+  const routes = [
+    { component: <Home />, path: '/'},
+    { component: <Projects />, path: '/projects'},
+    { component: <Books />, path: '/books'},
+    { component: <Info />, path: '/info'},
+    { component: <News />, path: '/news'},
+    { component: <Section1 />, path: 'gallery/section1'},
+    { component: <Section2 />, path: '/gallery/section2'},
+    { component: <Section3 />, path: '/gallery/section3'},
+    { component: <Section4 />, path: '/gallery/section4'},
+    { component: <Section5 />, path: '/gallery/section5'},
+    { component: <Section6 />, path: '/gallery/section6'},
+    { component: <Section7 />, path: '/gallery/section7'},
+  ]
+
   return (
     <div
       className='flex bg-white w-full h-screen '
@@ -28,33 +43,13 @@ const App = () => {
       <NavBar />
 
       <Routes>
-        <Route exact path="/"
-          element={<Home />}
-        />
-
-        <Route exact path="/projects"
-          element={<Projects />}
-        />
-
-        <Route exact path="/books"
-          element={<Books />}
-        />
-
-        <Route exact path="/info"
-          element={<Info />}
-        />
-
-        <Route exact path="/"
-          element={<News />}
-        />
-
-        <Route exact path="/news"
-          element={<News />}
-        />
-
-        <Route exact path="/news"
-          element={<News />}
-        />
+        {routes.map((route, index) => {
+          return (
+            <Route exact key={index} path={route.path}
+              element={route.component}
+            />
+          )
+        })}
       </Routes>
 
       <AnimatedCursor 

@@ -10,7 +10,7 @@ import art8 from "../Assets/Arts/art-8.jpg"
 import art9 from "../Assets/Arts/art-9.jpg"
 import art10 from "../Assets/Arts/art-10.jpg"
 
-const Art = () => {
+const Art = ({arts}) => {
     const items = [
         {name: 'sandy beach', img: homeImg, available: true},
         {name: 'seaside', img: art1, available: false},
