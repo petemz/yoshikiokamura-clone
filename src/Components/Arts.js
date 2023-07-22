@@ -71,6 +71,10 @@ const Art = () => {
                 }
 
                 const part = () => {
+                    for (let i = 0; i < items.length; i+5) {
+                        console.log(i)
+                    }
+
                     if (index + 1 === 1) {
                         return(
                             <div className="absolute top-0">

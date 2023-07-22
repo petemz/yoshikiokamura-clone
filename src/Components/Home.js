@@ -6,69 +6,70 @@ import Art from "./Arts"
 
 const Home = () => {
     const { setCurrentPage } = useContext(Context)
-    const xScrollRef = useRef(null);
-    const [isDragging, setIsDragging] = useState(false);
-    const [startX, setStartX] = useState(0);
-    const [scrollLeft, setScrollLeft] = useState(0);
-    //scrollEnd is for progress bar
+    const xScrollRef = useRef(null)
+    const [isDragging, setIsDragging] = useState(false)
+    const [startX, setStartX] = useState(0)
+    const [scrollLeft, setScrollLeft] = useState(0)
     const [scrollEnd, setScrollEnd] = useState(0)
-
+    
     const handleScroll = (e) => {
         if (e.deltaY !== 0) {
             xScrollRef.current.scrollLeft += e.deltaY
         }
     }
-
+    
     useEffect(() => {
-        // Disabling horizontal scroll event from touchpad
         const handleXScroll = (e) => {
-            if (e.deltaX !== 0) {
+          if (e.deltaX !== 0) {
             e.stopPropagation()
             e.preventDefault()
-            }
-
-                  // This will calculate how many pixels the page is vertically
-            const winScroll = xScrollRef.current.scrollLeft
-            // This is responsible for subtracticing the total height of the page - where the users page is scrolled to
-            const width =
-                xScrollRef.current.scrollWidth -
-                xScrollRef.current.clientWidth
-        
-            // This will calculate the final total of the percentage of how much the user has scrolled.
-            const scrolled = (winScroll / width) * 100
-
-            console.log(scrolled)
-        
-            setScrollEnd(scrolled)
+          }
+    
+          const winScroll = xScrollRef.current.scrollLeft
+          const width = xScrollRef.current.scrollWidth - xScrollRef.current.clientWidth
+    
+          const scrolled = (winScroll / width) * 100
+    
+          setScrollEnd(scrolled)
         }
-
+    
         const current = xScrollRef.current
-
+    
         xScrollRef.current.addEventListener('wheel', handleXScroll, { passive: false })
-
+    
         return () => {
             current.removeEventListener('wheel', handleXScroll, { passive: false })
         }
     }, [])
-
-    //Custom Drag event to scroll through the app
+    
     const handleMouseDown = (e) => {
-        setIsDragging(true)
-        setStartX(e.clientX)
-        setScrollLeft(xScrollRef.current.scrollLeft)
+        setIsDragging(true);
+        setStartX(e.clientX);
+        setScrollLeft(xScrollRef.current.scrollLeft);
+    
+        // Add event listeners to window for mousemove and mouseup
+        window.addEventListener('mousemove', handleMouseMove);
+        window.addEventListener('mouseup', handleMouseUp);
     }
-
+    
     const handleMouseMove = (e) => {
-        if (!isDragging) return
-
-        const xDiff = e.clientX - startX
-        xScrollRef.current.scrollLeft = scrollLeft - xDiff
+        if (!isDragging) return;
+    
+        const xDiff = e.clientX - startX;
+        xScrollRef.current.scrollLeft = scrollLeft - xDiff;
     }
-
+    
     const handleMouseUp = () => {
-        setIsDragging(false)
+        setIsDragging(false);
+    
+        // Remove event listeners from window after mouseup
+        window.removeEventListener('mousemove', handleMouseMove);
+        window.removeEventListener('mouseup', handleMouseUp);
     }
-
+    
+    useEffect(() => {
+        setCurrentPage('gallery');
+    }, [])
 
     useEffect(() => {
         setCurrentPage('gallery')

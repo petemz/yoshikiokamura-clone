@@ -3,7 +3,7 @@ import { useContext } from "react"
 import { Context } from "../Context"
 
 const Indicator = () => {
-    const { currentSection, setCurrentSection } = useContext(Context)
+    const { currentSection, setCurrentSection, setCurrentPage } = useContext(Context)
 
     const indicators = [
         {section: 1, item: '1-40'}, 
@@ -15,6 +15,11 @@ const Indicator = () => {
         {section: 7, item: '241-272'},
     ]
 
+    const handleClick = (section) => {
+        setCurrentSection(section)
+        setCurrentPage('')
+    }
+
     return (
         <div className="flex items-center text-xl font-light text-zinc-400 px-1 m-auto h-full relative">
             <ul className="h-max flex flex-col-reverse">
@@ -23,7 +28,7 @@ const Indicator = () => {
                         <li key={index} className="group hover:text-black">
                             <Link 
                                 className="flex hover:font-normal" to={`/gallery/section${index + 1}`}
-                                onClick={() => setCurrentSection(indicator.section)}    
+                                onClick={() => handleClick(indicator.section)}    
                             >
                                 <span className="w-5 py-2 text-right pr-6">{indicator.section}</span>
                                 <div className={`w-[1.6px] z-10 ${currentSection === indicator.section ? 'bg-black' : 'group-hover:bg-black'} `}></div>

@@ -22,6 +22,12 @@ code {
 
 * {
   flex-shrink: 0;
+  -webkit-touch-callout: none; /* Disable callouts on iOS */
+  -webkit-user-select: none; /* Disable selection on WebKit */
+  -khtml-user-select: none; /* Disable selection on Konqueror HTML */
+  -moz-user-select: none; /* Disable selection on Mozilla Firefox */
+  -ms-user-select: none; /* Disable selection on Internet Explorer/Edge */
+  user-select: none; /* Disable selection on other browsers */
 }
 
 #grad {

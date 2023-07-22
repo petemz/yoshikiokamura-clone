@@ -3,7 +3,7 @@ import { Context } from "../Context"
 import { Link } from "react-router-dom"
 
 const NavBar = () => {
-    const { currentPage, setCurrentPage } = useContext(Context)
+    const { currentPage, setCurrentPage, setCurrentSection } = useContext(Context)
 
     const [isNav, setIsNav] = useState(false)
 
@@ -12,6 +12,7 @@ const NavBar = () => {
     const handleLink = (page) => {
         setCurrentPage(page)
         setIsNav(false)
+        setCurrentSection(1)
     }
 
     const arrowRight = 
