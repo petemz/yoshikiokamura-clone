@@ -147,7 +147,7 @@ const Art = () => {
                 }
 
                 return (
-                    <div className={`flex w-40 flex-shrink-0 relative ${index + 1 !== items.length && 'mr-[275px]'}`}>
+                    <div className={`flex w-40 flex-shrink-0 relative ${index + 1 !== items.length && 'mr-[275px]'}`} key={index}>
                         <div style={position()} key={index} className="my-auto text-lg">
                             <img className="w-36 h-36 mb-2" src={item.img} alt="" />
                             <div className="flex justify-end">    
