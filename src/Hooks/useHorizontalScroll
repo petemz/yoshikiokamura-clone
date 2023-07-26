@@ -1,0 +1,79 @@
+import { useRef, useState, useEffect } from 'react';
+
+const useHorizontalScroll = () => {
+  const xScrollRef = useRef(null);
+  const [isDragging, setIsDragging] = useState(false);
+  const [startX, setStartX] = useState(0);
+  const [scrollLeft, setScrollLeft] = useState(0);
+  const [scrollEnd, setScrollEnd] = useState(0);
+
+  const handleScroll = (e) => {
+    if (e.deltaY !== 0) {
+      xScrollRef.current.scrollLeft += e.deltaY;
+    }
+  };
+
+  useEffect(() => {
+    // Disabling horizontal scroll event from touchpad
+    const handleXScroll = (e) => {
+      if (e.deltaX !== 0) {
+        e.stopPropagation();
+        e.preventDefault();
+      }
+
+      const winScroll = xScrollRef.current.scrollLeft;
+      const width =
+        xScrollRef.current.scrollWidth - xScrollRef.current.clientWidth;
+
+      const scrolled = (winScroll / width) * 100;
+
+      setScrollEnd(scrolled);
+    };
+
+    const current = xScrollRef.current;
+
+    xScrollRef.current.addEventListener('wheel', handleXScroll, {
+      passive: false,
+    });
+
+    return () => {
+      current.removeEventListener('wheel', handleXScroll, { passive: false });
+    };
+  }, []);
+
+  const handleMouseDown = (e) => {
+    setIsDragging(true);
+    setStartX(e.clientX);
+    setScrollLeft(xScrollRef.current.scrollLeft);
+
+    window.addEventListener('mousemove', handleMouseMove);
+    window.addEventListener('mouseup', handleMouseUp);
+  };
+
+  const handleMouseUp = () => {
+    setIsDragging(false);
+
+    window.removeEventListener('mousemove', handleMouseMove);
+    window.removeEventListener('mouseup', handleMouseUp);
+  };
+
+  const handleMouseMove = (e) => {
+    if (!isDragging) return;
+
+    const xDiff = e.clientX - startX;
+    xScrollRef.current.scrollLeft = scrollLeft - xDiff;
+  };
+
+  useEffect(() => {
+    return () => {
+      if (isDragging) {
+        window.removeEventListener('mousemove', handleMouseMove);
+        window.removeEventListener('mouseup', handleMouseUp);
+      }
+    };
+  }, [isDragging]);
+
+  return { xScrollRef, handleMouseDown, scrollEnd, setScrollEnd };
+};
+
+export default useHorizontalScroll;

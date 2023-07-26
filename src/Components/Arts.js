@@ -1,6 +1,4 @@
-import data from "../Assets/Data"
-
-const Art = ({items}) => {
+const Art = ({items, section}) => {
     const arrowRight = 
         <svg className="w-10" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
             <path d="M10 50 L90 50 M70 25 L90 50 L70 75" fill="none" stroke="black" strokeWidth="4" />
@@ -18,10 +16,12 @@ const Art = ({items}) => {
                 }
 
                 const part = () => {
+                    let x = (section - 1) * 20
+
                     if (index + 1 === 1) {
                         return(
-                            <div className="absolute top-2">
-                                <span className="text-6xl font-medium tracking-widest">1-5</span>
+                            <div className="absolute top-2 w-max">
+                                <span className="text-6xl font-medium tracking-widest">{`${x + 1}-${x + 5}`}</span>
                                 <div className="flex justify-end">
                                     {arrowRight}
                                 </div>
@@ -29,8 +29,8 @@ const Art = ({items}) => {
                         )
                     } else if (index + 1 === 6) {
                         return(
-                            <div className="absolute top-2">
-                                <span className="text-6xl font-medium tracking-widest">6-10</span>
+                            <div className="absolute top-2 w-max">
+                                <span className="text-6xl font-medium tracking-widest">{`${x + 6}-${x + 10}`}</span>
                                 <div className="flex justify-end">
                                     {arrowRight}
                                 </div>
@@ -38,8 +38,8 @@ const Art = ({items}) => {
                         )
                     } else if (index + 1 === 11) {
                         return(
-                            <div className="absolute top-2">
-                                <span className="text-6xl font-medium tracking-widest">11-15</span>
+                            <div className="absolute top-2 w-max">
+                                <span className="text-6xl font-medium tracking-widest">{`${x + 11}-${x + 15}`}</span>
                                 <div className="flex justify-end">
                                     {arrowRight}
                                 </div>
@@ -47,8 +47,8 @@ const Art = ({items}) => {
                         )
                     } else if (index + 1 === 16) {
                         return(
-                            <div className="absolute top-2">
-                                <span className="text-6xl font-medium">16-20</span>
+                            <div className="absolute top-2 w-max">
+                                <span className="text-6xl font-medium">{`${x + 16}-${x + 20}`}</span>
                                 <div className="flex justify-end">
                                     {arrowRight}
                                 </div>

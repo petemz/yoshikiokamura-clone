@@ -3,8 +3,8 @@ import { createContext, useState, } from "react"
 const Context = createContext()
 
 const ContextProvider = (props) => {
-    const [currentPage, setCurrentPage] = useState('gallery')
-    const [currentSection, setCurrentSection] = useState(1)
+    const [currentPage, setCurrentPage] = useState()
+    const [currentSection, setCurrentSection] = useState()
 
     return (
         <Context.Provider value={{currentPage, setCurrentPage, currentSection, setCurrentSection, }}>

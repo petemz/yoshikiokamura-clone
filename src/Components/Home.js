@@ -74,12 +74,12 @@ const Home = () => {
 
     useEffect(() => {
         return () => {
-          if (isDragging) {
-            window.removeEventListener('mousemove', handleMouseMove);
-            window.removeEventListener('mouseup', handleMouseUp);
-          }
-        };
-    }, [isDragging]);
+            if (isDragging) {
+                window.removeEventListener('mousemove', handleMouseMove);
+                window.removeEventListener('mouseup', handleMouseUp);
+            }
+        }
+    }, [isDragging])
 
     useEffect(() => {
         setCurrentPage('gallery')
@@ -110,7 +110,7 @@ const Home = () => {
 
             <Indicator />
 
-            <Art items={items}/>
+            <Art items={items} section={1}/>
 
             <Indicator />
 

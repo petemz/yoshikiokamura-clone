@@ -1,4 +1,5 @@
-import { useState,useEffect, useRef } from "react";
+import { useState, useEffect, useRef, useContext } from "react"
+import { Context } from "../../Context"
 import Art from "../Arts";
 import Indicator from "../SectionIndicator"
 
@@ -8,6 +9,7 @@ const Section2 = () => {
     const items = data.slice(20, 40)
 
 
+    const { setCurrentSection } = useContext(Context)
     const xScrollRef = useRef(null);
     const [isDragging, setIsDragging] = useState(false);
     const [startX, setStartX] = useState(0);
@@ -25,21 +27,16 @@ const Section2 = () => {
         // Disabling horizontal scroll event from touchpad
         const handleXScroll = (e) => {
             if (e.deltaX !== 0) {
-            e.stopPropagation()
-            e.preventDefault()
+                e.stopPropagation()
+                e.preventDefault()
             }
 
-                  // This will calculate how many pixels the page is vertically
             const winScroll = xScrollRef.current.scrollLeft
-            // This is responsible for subtracticing the total height of the page - where the users page is scrolled to
             const width =
                 xScrollRef.current.scrollWidth -
                 xScrollRef.current.clientWidth
         
-            // This will calculate the final total of the percentage of how much the user has scrolled.
             const scrolled = (winScroll / width) * 100
-
-            console.log(scrolled)
         
             setScrollEnd(scrolled)
         }
@@ -53,11 +50,20 @@ const Section2 = () => {
         }
     }, [])
 
-    //Custom Drag event to scroll through the app
     const handleMouseDown = (e) => {
         setIsDragging(true)
         setStartX(e.clientX)
         setScrollLeft(xScrollRef.current.scrollLeft)
+
+        window.addEventListener('mousemove', handleMouseMove);
+        window.addEventListener('mouseup', handleMouseUp);
+    }
+
+    const handleMouseUp = () => {
+        setIsDragging(false)
+
+        window.removeEventListener('mousemove', handleMouseMove);
+        window.removeEventListener('mouseup', handleMouseUp);
     }
 
     const handleMouseMove = (e) => {
@@ -67,10 +73,19 @@ const Section2 = () => {
         xScrollRef.current.scrollLeft = scrollLeft - xDiff
     }
 
-    const handleMouseUp = () => {
-        setIsDragging(false)
-    }
-
+    useEffect(() => {
+        return () => {
+          if (isDragging) {
+            window.removeEventListener('mousemove', handleMouseMove);
+            window.removeEventListener('mouseup', handleMouseUp);
+          }
+        };
+    }, [isDragging])
+    
+    useEffect(() => {
+        setCurrentSection(2)
+    })
+    
     return (
         <div 
             className="flex bg-white w-full h-screen overscroll-x-auto overflow-y-hidden z-0 pl-52 pr-96"
@@ -82,7 +97,7 @@ const Section2 = () => {
         >
             <Indicator />
 
-            <Art items={items}/>
+            <Art items={items} section={2}/>
             
             <Indicator />
         </div>
