@@ -1,4 +1,9 @@
+import { useContext } from "react"
+import { Context } from "../Context"
+
 const Art = ({items, section}) => {
+    const { handleModal } = useContext((Context))
+
     const arrowRight = 
         <svg className="w-10" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
             <path d="M10 50 L90 50 M70 25 L90 50 L70 75" fill="none" stroke="black" strokeWidth="4" />
@@ -60,7 +65,7 @@ const Art = ({items, section}) => {
                 return (
                     <div className={`flex w-40 flex-shrink-0 relative ${index + 1 !== items.length && 'mr-[275px]'}`} key={index}>
                         <div style={position()} key={index} className="my-auto text-lg">
-                            <img className="w-36 h-36 mb-2" src={item.img} alt="" />
+                            <img className="w-36 h-36 mb-2" onClick={() => handleModal(item)} src={item.img} alt="" />
                             <div className="flex justify-end">    
                                 <p className="">{item.name}</p>
                                 <div className={`rounded-md ml-3 border-black ${item.available === false && 'bg-black'} border-2 w-[10px] h-[10px]`}>

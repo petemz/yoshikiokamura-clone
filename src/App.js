@@ -1,4 +1,4 @@
-//import { useRef, useEffect, useState } from 'react';
+import { useContext } from 'react';
 import { Routes, Route } from "react-router-dom"
 //import WaveAnimation from "./Components/Waves";
 //import Waver from "./Components/Test";
@@ -16,10 +16,14 @@ import Section5 from './Components/Gallery/Section5'
 import Section6 from './Components/Gallery/Section6'
 import Section7 from './Components/Gallery/Section7'
 
+import ArtModal from './Components/ArtModal';
 import NavBar from './Components/Nav'
 import AnimatedCursor from "react-animated-cursor"
 
+import { Context } from "./Context"
+
 const App = () => {
+  const { isModal, setIsModal, modalArt, setModalArt } = useContext(Context)
 
   const routes = [
     { component: <Home />, path: '/'},
@@ -80,6 +84,8 @@ const App = () => {
           <WaveAnimation />
         </div>
       */}
+      
+      {isModal && <ArtModal item={modalArt}/>}
     </div>
   )
 }
