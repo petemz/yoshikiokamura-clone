@@ -6,13 +6,13 @@ const Indicator = () => {
     const { currentSection, setCurrentSection, setCurrentPage } = useContext(Context)
 
     const indicators = [
-        {section: 1, item: '1-40'}, 
-        {section: 2, item: '41-80'},
-        {section: 3, item: '81-120'},  
-        {section: 4, item: '121-160'}, 
-        {section: 5, item: '161-200'},
-        {section: 6, item: '201-240'},  
-        {section: 7, item: '241-272'},
+        {section: 1, item: '1-20'}, 
+        {section: 2, item: '21-40'},
+        {section: 3, item: '41-80'},  
+        {section: 4, item: '61-80'}, 
+        {section: 5, item: '81-100'},
+        {section: 6, item: '101-120'},  
+        {section: 7, item: '121-133'},
     ]
 
     const handleClick = (section) => {

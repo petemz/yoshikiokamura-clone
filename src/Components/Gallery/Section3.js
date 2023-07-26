@@ -2,7 +2,12 @@ import { useState,useEffect, useRef } from "react";
 import Art from "../Arts";
 import Indicator from "../SectionIndicator"
 
+import data from "../../Assets/Data"
+
 const Section3 = () => {
+    const items = data.slice(40, 60)
+
+
     const xScrollRef = useRef(null);
     const [isDragging, setIsDragging] = useState(false);
     const [startX, setStartX] = useState(0);
@@ -33,8 +38,6 @@ const Section3 = () => {
         
             // This will calculate the final total of the percentage of how much the user has scrolled.
             const scrolled = (winScroll / width) * 100
-
-            console.log(scrolled)
         
             setScrollEnd(scrolled)
         }
@@ -77,8 +80,8 @@ const Section3 = () => {
         >
             <Indicator />
 
-            <Art />
-
+            <Art items={items}/>
+            
             <Indicator />
         </div>
     )

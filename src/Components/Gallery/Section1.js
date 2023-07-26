@@ -2,7 +2,12 @@ import { useState,useEffect, useRef } from "react";
 import Art from "../Arts";
 import Indicator from "../SectionIndicator"
 
+import data from "../../Assets/Data"
+
 const Section1 = () => {
+    const items = data.slice(0, 20)
+
+    
     const xScrollRef = useRef(null);
     const [isDragging, setIsDragging] = useState(false);
     const [startX, setStartX] = useState(0);
@@ -77,8 +82,8 @@ const Section1 = () => {
         >
             <Indicator />
 
-            <Art />
-
+            <Art items={items}/>
+            
             <Indicator />
         </div>
     )

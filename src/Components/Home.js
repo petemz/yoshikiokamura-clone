@@ -3,8 +3,11 @@ import { Context } from "../Context"
 import WelcomeArt from "./WelcomeArt"
 import Indicator from "./SectionIndicator"
 import Art from "./Arts"
+import data from "../Assets/Data"
 
 const Home = () => {
+    const items = data.slice(0, 20)
+
     const { setCurrentPage } = useContext(Context)
     const xScrollRef = useRef(null);
     const [isDragging, setIsDragging] = useState(false);
@@ -107,7 +110,7 @@ const Home = () => {
 
             <Indicator />
 
-            <Art />
+            <Art items={items}/>
 
             <Indicator />
 
