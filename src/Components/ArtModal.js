@@ -7,9 +7,8 @@ const ArtModal = ({item}) => {
     const [isContact, setIsContact] = useState()
     const [isCopied, setIsCopied] = useState(false)
     
-    const handleContactTab = (title) => {
+    const handleContactTab = (name) => {
         setIsContact(true)
-        //setContactBook(title)
     }
 
     const handleTabClose = () => {
@@ -19,7 +18,7 @@ const ArtModal = ({item}) => {
 
     const handleCopy = () => {
         setIsCopied(true)
-        navigator.clipboard.writeText('Name:\nCountry:\nShipping Address:\nBook Title:')
+        navigator.clipboard.writeText('Name:\nCountry:\nShipping Address:\nArtwork Title:')
     }
 
     return (
@@ -52,8 +51,8 @@ const ArtModal = ({item}) => {
                 </div>
 
                 <div className="flex items-center">
-                    <span className="text-xl mr-4">Back</span>
-                    <button onClick={() => setIsModal(false)} className="w-8 p-1">
+                    <span>Back</span>
+                    <button onClick={() => setIsModal(false)} className="w-8 p-1 ml-4">
                         <svg className="" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
                             <line x1="0" y1="0" x2="100" y2="100" stroke="black" strokeWidth="12" />
                             <line x1="0" y1="100" x2="100" y2="0" stroke="black" strokeWidth="12" />
@@ -61,7 +60,7 @@ const ArtModal = ({item}) => {
                     </button>
                 </div>
 
-                <button className="text-xl" onClick={() => handleContactTab()}>
+                <button onClick={() => handleContactTab(item.name)}>
                     <span>Contact</span>
                 </button>
             </div>
@@ -85,7 +84,7 @@ const ArtModal = ({item}) => {
                             <p>Name:</p>
                             <p>Country:</p>
                             <p>Shipping Address:</p>
-                            <p>Book Title: {}</p>
+                            <p>Artwork Title: {item.name}</p>
 
                             <button 
                                 className="absolute text-base font-normal right-3 top-1"
