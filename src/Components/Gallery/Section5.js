@@ -100,6 +100,23 @@ const Section5 = () => {
             <Art items={items} section={5}/>
             
             <Indicator />
+            
+            <div className="fixed text-black text-lg bottom-8 right-8 z-[1000]">
+                {scrollEnd < 15 && 
+                    <div className="flex items-center mb-1">
+                        <p>Scroll or Drag Sideways</p>  
+                        <div className="arrow-container ml-3">
+                            <svg className="arrow ml-4" fill="currentColor" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512"><path d="M502.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-128-128c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L402.7 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l370.7 0-73.4 73.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l128-128z"/></svg>
+                        </div>
+                    </div>
+                }
+
+                {/* Scroll progress bar */}
+                <div className="w-60 h-[1.3px] bg-zinc-300">
+                    <div style={{ width: `${scrollEnd}%` }} className="h-full bg-black">
+                    </div>
+                </div>
+            </div>
         </div>
     )
 }
