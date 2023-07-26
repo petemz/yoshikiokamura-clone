@@ -23,7 +23,7 @@ import AnimatedCursor from "react-animated-cursor"
 import { Context } from "./Context"
 
 const App = () => {
-  const { isModal, setIsModal, modalArt, setModalArt } = useContext(Context)
+  const { isModal, modalArt } = useContext(Context)
 
   const routes = [
     { component: <Home />, path: '/'},
