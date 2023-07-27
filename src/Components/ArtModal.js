@@ -1,5 +1,6 @@
 import { useContext, useState } from "react"
 import { Context } from "../Context"
+import { useNavigate } from "react-router-dom"
 
 
 const ArtModal = () => {
@@ -11,7 +12,6 @@ const ArtModal = () => {
     const handleContactTab = (name) => {
         setIsContact(true)
     }
-
     const handleTabClose = () => {
         setIsContact(false)
         setIsCopied(false)
@@ -22,17 +22,24 @@ const ArtModal = () => {
         navigator.clipboard.writeText('Name:\nCountry:\nShipping Address:\nArtwork Title:')
     }
 
+    const navigate = useNavigate()
+
     const prevArt = () => {
         if (artIndex !== 0) {
             setModalArt(items[artIndex - 1])
             setArtIndex(artIndex - 1)
+        } else if (currentSection !== 1) {
+            setIsModal(false)
+            return navigate(`gallery/section${currentSection - 1}`)
         }
     }
-
     const nextArt = () => {
         if (artIndex < items.length - 1) {
             setModalArt(items[artIndex + 1])
             setArtIndex(artIndex + 1)
+        } else if (currentSection !== 7) {
+            setIsModal(false)
+            return navigate(`gallery/section${currentSection + 1}`)
         }
     }
 
