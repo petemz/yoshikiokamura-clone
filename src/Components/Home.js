@@ -1,9 +1,9 @@
 import { useState, useEffect, useRef, useContext } from "react"
 import { Context } from "../Context"
-import WelcomeArt from "./WelcomeArt"
-import Indicator from "./SectionIndicator"
+import Indicator from "./Indicator"
 import Art from "./Arts"
 import data from "../Assets/Data"
+import homeImg from "../Assets/home-img.jpg"
 
 const Home = () => {
     const items = data.slice(0, 20)
@@ -95,7 +95,14 @@ const Home = () => {
             onMouseMove={handleMouseMove}
             onMouseUp={handleMouseUp} 
         >
-            <WelcomeArt />
+            <div 
+                style={{backgroundImage : `url("${homeImg}")`}}
+                className="h-full flex-shrink-0 w-[calc(100vw-64px)] md:w-screen ml-16 md:ml-0 z-20 bg-center flex items-center"
+            >
+                <div className="bg-white font-light tracking-[13px] sm:tracking-[10px] w-max h-max ml-[10%] px-5 py-2 xs:text-base sm:text-lg md:text-xl text-3xl">
+                    <p className=""><span className="font-semibold ">YOSHIKI</span> OKAMURA</p>
+                </div>
+            </div>
 
             <div className="w-[555px] px-14 relative">
                 <h2 className="text-6xl py-3 absolute z-10 top-0">Gallery</h2>

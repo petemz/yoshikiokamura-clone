@@ -1,8 +1,8 @@
 import { useContext } from "react"
 import { Context } from "../Context"
 
-const Art = ({items, section}) => {
-    const { handleModal } = useContext((Context))
+const Art = ({items}) => {
+    const { handleModal, currentSection } = useContext((Context))
 
     const arrowRight = 
         <svg className="w-10" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
@@ -21,7 +21,7 @@ const Art = ({items, section}) => {
                 }
 
                 const part = () => {
-                    let x = (section - 1) * 20
+                    let x = (currentSection - 1) * 20
 
                     if (index + 1 === 1) {
                         return(

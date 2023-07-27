@@ -1,26 +1,15 @@
 import { useContext } from 'react';
 import { Routes, Route } from "react-router-dom"
-//import WaveAnimation from "./Components/Waves";
-//import Waver from "./Components/Test";
-//import Third from "./Components/Third";
+import { Context } from "./Context"
 import Home from "./Components/Home"
 import Projects from './Components/Projects'
 import Books from './Components/Books'
 import Info from './Components/Info'
 import News from './Components/News'
-import Section1 from './Components/Gallery/Section1'
-import Section2 from './Components/Gallery/Section2'
-import Section3 from './Components/Gallery/Section3'
-import Section4 from './Components/Gallery/Section4'
-import Section5 from './Components/Gallery/Section5'
-import Section6 from './Components/Gallery/Section6'
-import Section7 from './Components/Gallery/Section7'
-
+import Section from './Components/Section';
 import ArtModal from './Components/ArtModal';
 import NavBar from './Components/Nav'
 import AnimatedCursor from "react-animated-cursor"
-
-import { Context } from "./Context"
 
 const App = () => {
   const { isModal, modalArt } = useContext(Context)
@@ -31,13 +20,13 @@ const App = () => {
     { component: <Books />, path: '/books'},
     { component: <Info />, path: '/info'},
     { component: <News />, path: '/news'},
-    { component: <Section1 />, path: 'gallery/section1'},
-    { component: <Section2 />, path: '/gallery/section2'},
-    { component: <Section3 />, path: '/gallery/section3'},
-    { component: <Section4 />, path: '/gallery/section4'},
-    { component: <Section5 />, path: '/gallery/section5'},
-    { component: <Section6 />, path: '/gallery/section6'},
-    { component: <Section7 />, path: '/gallery/section7'},
+    { component: <Section section={1}/>, path: 'gallery/section1'},
+    { component: <Section section={2}/>, path: '/gallery/section2'},
+    { component: <Section section={3}/>, path: '/gallery/section3'},
+    { component: <Section section={4}/>, path: '/gallery/section4'},
+    { component: <Section section={5}/>, path: '/gallery/section5'},
+    { component: <Section section={6}/>, path: '/gallery/section6'},
+    { component: <Section section={7}/>, path: '/gallery/section7'},
   ]
 
   return (
