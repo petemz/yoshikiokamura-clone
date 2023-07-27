@@ -75,8 +75,8 @@ const NavBar = () => {
                     </button>
                 </div>
             :
-                <div className="bg-white flex justify-center items-center fixed top-0 left-0 z-50 w-16 h-full border-r-2 border-zinc-100">
-                    <button onClick={() => setIsNav(true)} className="w-14">
+                <div className="bg-white md:w-max md:h-max md:rounded-full md:border md:top-5 md:left-7 flex justify-center items-center fixed top-0 left-0 z-50 w-16 h-full border-r-2 border-zinc-100">
+                    <button onClick={() => setIsNav(true)} className="w-14 md:w-12">
                         <svg className=" rounded-full" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
                             <g transform="rotate(90 50 50)">
                                 <rect x="25" y="45" width="6" height="6" fill="black" />

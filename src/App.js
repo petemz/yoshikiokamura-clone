@@ -75,7 +75,8 @@ const App = () => {
         }}
         clickables={[
           'a',
-          'button'
+          'button',
+          '.art'
         ]}
       />
 

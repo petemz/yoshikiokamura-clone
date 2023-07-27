@@ -17,9 +17,9 @@ const Info = () => {
     })
 
     return (
-        <div className="w-full pl-20 leading-loose tracking-wide p-4 grid grid-cols-[40%_50%] justify-between items-center">
+        <div className="w-full pl-20 sm:pl-4 leading-loose tracking-wide p-4 grid grid-cols-[40%_50%] sm:grid-cols-[60px_1fr] sm:gap-[5%] justify-between items-center">
             <div 
-                className="flex h-full justify-center items-center [word-spacing:15px] tracking-[0.8vw] text-[2.2vw]"
+                className="flex h-full sm:[writing-mode:vertical-rl] sm:text-2xl text-[2.2vw] justify-center items-center [word-spacing:15px] tracking-[0.8vw] sm:tracking-[15px]"
                 ref={fixedRef}
                 onWheel={handleScroll}
             >

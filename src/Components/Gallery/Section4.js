@@ -88,7 +88,7 @@ const Section4 = () => {
 
     return (
         <div 
-            className="flex bg-white w-full h-screen overscroll-x-auto overflow-y-hidden z-0 pl-52 pr-96"
+            className="flex bg-white w-full h-screen overscroll-x-auto overflow-y-hidden z-0 pl-52 md:pl-36 pr-96 md:pr-64"
             ref={xScrollRef}
             onWheel={handleScroll}
             onMouseDown={handleMouseDown}
