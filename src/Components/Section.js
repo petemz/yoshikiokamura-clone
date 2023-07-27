@@ -1,14 +1,14 @@
 import { useState, useEffect, useRef, useContext } from "react"
-import { Context } from "../../Context"
-import Art from "../Arts";
-import Indicator from "../SectionIndicator"
+import { Context } from "../Context"
+import Art from "./Arts";
+import Indicator from "./Indicator"
+import data from "../Assets/Data"
 
-import data from "../../Assets/Data"
-
-const Section2 = () => {
-    const items = data.slice(20, 40)
-
+const Section = ({section}) => {
     const { setCurrentSection } = useContext(Context)
+
+    const items = data.slice(20 * (section - 1), 20 * section)
+
     const xScrollRef = useRef(null);
     const [isDragging, setIsDragging] = useState(false);
     const [startX, setStartX] = useState(0);
@@ -82,9 +82,9 @@ const Section2 = () => {
     }, [isDragging])
     
     useEffect(() => {
-        setCurrentSection(2)
+        setCurrentSection(section)
     })
-    
+
     return (
         <div 
             className="flex bg-white w-full h-screen overscroll-x-auto overflow-y-hidden z-0 pl-52 md:pl-36 pr-96 md:pr-64"
@@ -96,10 +96,10 @@ const Section2 = () => {
         >
             <Indicator />
 
-            <Art items={items} section={2}/>
+            <Art items={items}/>
             
             <Indicator pageEnd={true}/>
-
+            
             <div className="fixed text-black text-lg bottom-8 right-8 z-[1000]">
                 {scrollEnd < 15 && 
                     <div className="flex items-center mb-1">
@@ -120,4 +120,4 @@ const Section2 = () => {
     )
 }
 
-export default Section2
+export default Section
