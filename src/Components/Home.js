@@ -87,7 +87,7 @@ const Home = () => {
 
     return  (
         <div 
-            className="flex bg-white w-full h-screen overscroll-x-auto overflow-y-hidden z-0 pr-96"
+            className="flex bg-white w-full h-screen overscroll-x-auto overflow-y-hidden z-0 md:pr-64 pr-96"
             ref={xScrollRef}
             onWheel={handleScroll}
             onMouseDown={handleMouseDown}
