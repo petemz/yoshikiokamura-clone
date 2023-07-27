@@ -98,7 +98,7 @@ const Section2 = () => {
 
             <Art items={items} section={2}/>
             
-            <Indicator />
+            <Indicator pageEnd={true}/>
 
             <div className="fixed text-black text-lg bottom-8 right-8 z-[1000]">
                 {scrollEnd < 15 && 

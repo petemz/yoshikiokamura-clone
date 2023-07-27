@@ -113,7 +113,7 @@ const Home = () => {
 
             <Art items={items} section={1}/>
 
-            <Indicator />
+            <Indicator pageEnd={true}/>
 
             <div className="fixed text-white text-lg bottom-8 right-8 z-[1000]">
                 <div className="flex items-center mb-1">

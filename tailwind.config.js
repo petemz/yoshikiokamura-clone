@@ -19,9 +19,9 @@ module.exports = {
 
       '-xs': {'min': '600px'},
 
-      'xxs': {'max': '500px'},
+      'xxs': {'max': '450px'},
       
-      '-xxs': {'min': '500px'},
+      '-xxs': {'min': '450px'},
     }
   },
   plugins: [],

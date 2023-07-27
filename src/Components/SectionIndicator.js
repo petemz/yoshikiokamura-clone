@@ -2,7 +2,7 @@ import { Link } from "react-router-dom"
 import { useContext } from "react"
 import { Context } from "../Context"
 
-const Indicator = () => {
+const Indicator = ({pageEnd}) => {
     const { currentSection, setCurrentSection, setCurrentPage } = useContext(Context)
 
     const indicators = [
@@ -21,36 +21,56 @@ const Indicator = () => {
     }
 
     return (
-        <div className="flex items-center text-xl font-light text-zinc-400 px-1 m-auto h-full relative">
-            <ul className="h-max flex flex-col-reverse">
-                {indicators.map((indicator, index) => {
-                    return(
-                        <li className={currentSection === indicator.section ? 'text-black font-normal' : 'group hover:text-black'} key={index} >
-                            {currentSection === indicator.section ?
-                                <div className="flex">
-                                    <span className="w-5 py-2 text-right pr-6">{indicator.section}</span>
-                                    <div className={`w-[1.6px] z-10 ${currentSection === indicator.section ? 'bg-black' : 'group-hover:bg-black'}`}></div>
-                                    <span className="pl-4 py-2 w-24 ">{indicator.item}</span>
-                                </div>
-                                :
-                                <Link
-                                    className="flex hover:font-normal" to={`/gallery/section${index + 1}`}
-                                    onClick={() => handleClick(indicator.section)}    
-                                >
-                                    <span className="w-5 py-2 text-right pr-6">{indicator.section}</span>
-                                    <div className={`w-[1.6px] z-10 ${currentSection === indicator.section ? 'bg-black' : 'group-hover:bg-black'} `}></div>
-                                    <span className="pl-4 py-2 w-24 ">{indicator.item}</span>
-                                </Link>
-                            }
-                        </li>
-                        
-                    )}
-                )}
-            </ul>
+        <div>
+            <div className="flex items-center text-xl font-light px-1 m-auto h-full overflow-visible relative">
+                <ul className="h-max flex flex-col-reverse">
+                    {indicators.map((indicator, index) => {
+                        return(
+                            <>
+                                <li className={currentSection === indicator.section ? 'text-black font-normal' : 'group hover:text-black text-zinc-400 '} key={index} >
+                                    {currentSection === indicator.section ?
+                                        <div className="flex">
+                                            <span className="w-5 py-2 text-right pr-6">{indicator.section}</span>
+                                            <div className={`w-[1.6px] z-10 ${currentSection === indicator.section ? 'bg-black' : 'group-hover:bg-black'}`}></div>
+                                            <span className="pl-4 py-2 w-24 ">{indicator.item}</span>
+                                        </div>
+                                        :
+                                        <Link
+                                            className="flex hover:font-normal" to={`/gallery/section${index + 1}`}
+                                            onClick={() => handleClick(indicator.section)}    
+                                        >
+                                            <span className="w-5 py-2 text-right pr-6">{indicator.section}</span>
+                                            <div className={`w-[1.6px] z-10 ${currentSection === indicator.section ? 'bg-black' : 'group-hover:bg-black'} `}></div>
+                                            <span className="pl-4 py-2 w-24 ">{indicator.item}</span>
+                                        </Link>
+                                    }
+                                </li>
 
-            <div id="grad" className="w-[1.8px] h-full absolute left-[28px]">
-                {/*Gradient divider line*/}
+                                {pageEnd &&
+                                    <div>
+                                        {currentSection + 1 === indicator.section ?
+                                            <div className="absolute left-16 w-max top-2 font-semibold text-7xl">
+                                                <span>{indicator.item}</span>
+                                                <svg className="w-10 mt-4 ml-auto" viewBox="0 0 64 46" xmlns="http://www.w3.org/2000/svg"><path d="M4 43.923h20.77V25.461h18.46V7H64" fill="none" stroke="#1a1a1a" stroke-width="3"></path> <path d="M6.336 22.808L19.527 9.617v6.562l2.331-.023V5.386h-10.77l-.023 2.33h6.562L4.435 20.908l1.9 1.9z" fill="#1a1a1a"></path></svg>
+                                            </div>
+                                            :
+                                            <div>
+
+                                            </div>
+                                        }
+                                    </div>
+                                }
+                            </>         
+                        )}
+                    )}
+                </ul>
+
+                <div id="grad" className="w-[1.8px] h-full absolute left-[28px]">
+                    {/*Gradient divider line*/}
+                </div>
             </div>
+
+            <span></span>
         </div>
     )
 }
