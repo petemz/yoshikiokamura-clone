@@ -8,7 +8,7 @@ import data from "../Assets/Data"
 const Home = () => {
     const items = data.slice(0, 20)
 
-    const { setCurrentPage } = useContext(Context)
+    const { setCurrentPage, setCurrentSection } = useContext(Context)
     const xScrollRef = useRef(null);
     const [isDragging, setIsDragging] = useState(false);
     const [startX, setStartX] = useState(0);
@@ -83,6 +83,7 @@ const Home = () => {
 
     useEffect(() => {
         setCurrentPage('gallery')
+        setCurrentSection(1)
     })
 
     return  (

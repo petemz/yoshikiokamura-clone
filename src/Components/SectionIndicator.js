@@ -25,15 +25,23 @@ const Indicator = () => {
             <ul className="h-max flex flex-col-reverse">
                 {indicators.map((indicator, index) => {
                     return(
-                        <li key={index} className="group hover:text-black">
-                            <Link 
-                                className="flex hover:font-normal" to={`/gallery/section${index + 1}`}
-                                onClick={() => handleClick(indicator.section)}    
-                            >
-                                <span className="w-5 py-2 text-right pr-6">{indicator.section}</span>
-                                <div className={`w-[1.6px] z-10 ${currentSection === indicator.section ? 'bg-black' : 'group-hover:bg-black'} `}></div>
-                                <span className="pl-4 py-2 w-24 ">{indicator.item}</span>
-                            </Link>
+                        <li className={currentSection === indicator.section ? 'text-black font-normal' : 'group hover:text-black'} key={index} >
+                            {currentSection === indicator.section ?
+                                <div className="flex">
+                                    <span className="w-5 py-2 text-right pr-6">{indicator.section}</span>
+                                    <div className={`w-[1.6px] z-10 ${currentSection === indicator.section ? 'bg-black' : 'group-hover:bg-black'}`}></div>
+                                    <span className="pl-4 py-2 w-24 ">{indicator.item}</span>
+                                </div>
+                                :
+                                <Link
+                                    className="flex hover:font-normal" to={`/gallery/section${index + 1}`}
+                                    onClick={() => handleClick(indicator.section)}    
+                                >
+                                    <span className="w-5 py-2 text-right pr-6">{indicator.section}</span>
+                                    <div className={`w-[1.6px] z-10 ${currentSection === indicator.section ? 'bg-black' : 'group-hover:bg-black'} `}></div>
+                                    <span className="pl-4 py-2 w-24 ">{indicator.item}</span>
+                                </Link>
+                            }
                         </li>
                         
                     )}

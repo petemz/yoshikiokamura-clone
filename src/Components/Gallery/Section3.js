@@ -8,7 +8,6 @@ import data from "../../Assets/Data"
 const Section3 = () => {
     const items = data.slice(40, 60)
 
-
     const { setCurrentSection } = useContext(Context)
     const xScrollRef = useRef(null);
     const [isDragging, setIsDragging] = useState(false);

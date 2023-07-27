@@ -7,7 +7,6 @@ import data from "../../Assets/Data"
 
 const Section1 = () => {
     const items = data.slice(0, 20)
-
     
     const { setCurrentSection } = useContext(Context)
     const xScrollRef = useRef(null);

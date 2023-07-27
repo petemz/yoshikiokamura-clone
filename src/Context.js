@@ -1,4 +1,5 @@
 import { createContext, useState, } from "react"
+import data from "./Assets/Data"
 
 const Context = createContext()
 
@@ -8,15 +9,18 @@ const ContextProvider = (props) => {
     
     const [isModal, setIsModal] = useState(false)
     const [modalArt, setModalArt] = useState({})
+    const [artIndex, setArtIndex] = useState(0)
 
-    
-    const handleModal = (art) => {
+    const items = data.slice(20 * (currentSection - 1), 20 * currentSection)
+
+    const handleModal = (art, index) => {
         setIsModal(true)
         setModalArt(art)
+        setArtIndex(index)
     }
 
     return (
-        <Context.Provider value={{currentPage, setCurrentPage, currentSection, setCurrentSection, isModal, setIsModal, modalArt, setModalArt, handleModal, }}>
+        <Context.Provider value={{currentPage, setCurrentPage, currentSection, setCurrentSection, isModal, setIsModal, modalArt, setModalArt, handleModal, items, artIndex, setArtIndex}}>
             {props.children}
         </Context.Provider>
     )
