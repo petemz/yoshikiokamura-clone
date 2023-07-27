@@ -23,7 +23,7 @@ const NavBar = () => {
     return (
         <>
             {isNav ? 
-                <div className="w-72 px-6 py-3 flex flex-col justify-end bg-white fixed top-0 left-0 z-50 h-full border-r-2 border-zinc-100">
+                <div className="w-72 px-6 py-3 flex flex-col justify-end bg-white fixed top-0 left-0 z-50 h-full max-h-screen border-r-2 border-zinc-100">
                     <ul className="text-[30px] font-light mb-[35%]">
                         {links.map((link, index) => 
                             <li 

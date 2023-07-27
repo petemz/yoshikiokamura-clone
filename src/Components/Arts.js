@@ -65,7 +65,7 @@ const Art = ({items, section}) => {
                 return (
                     <div className={`flex w-40 flex-shrink-0 relative ${index + 1 !== items.length && 'mr-[275px]'}`} key={index}>
                         <div style={position()} key={index} className="my-auto text-lg">
-                            <img className="w-36 h-36 mb-2 art" onClick={() => handleModal(item)} src={item.img} alt="" />
+                            <img className="w-36 h-36 mb-2 art" onClick={() => handleModal(item, index)} src={item.img} alt="" />
                             <div className="flex justify-end">    
                                 <p className="">{item.name}</p>
                                 <div className={`rounded-md ml-3 border-black ${item.available === false && 'bg-black'} border-2 w-[10px] h-[10px]`}>

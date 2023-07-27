@@ -1,16 +1,17 @@
 import { useContext, useState } from "react"
 import { Context } from "../Context"
+import { useNavigate } from "react-router-dom"
 
 
 const ArtModal = () => {
-    const { modalArt, setIsModal } = useContext(Context)
+    const { currentSection, modalArt, setModalArt, setIsModal, items, artIndex, setArtIndex } = useContext(Context)
+
     const [isContact, setIsContact] = useState()
     const [isCopied, setIsCopied] = useState(false)
     
     const handleContactTab = (name) => {
         setIsContact(true)
     }
-
     const handleTabClose = () => {
         setIsContact(false)
         setIsCopied(false)
@@ -21,12 +22,25 @@ const ArtModal = () => {
         navigator.clipboard.writeText('Name:\nCountry:\nShipping Address:\nArtwork Title:')
     }
 
+    const navigate = useNavigate()
+
     const prevArt = () => {
-
+        if (artIndex !== 0) {
+            setModalArt(items[artIndex - 1])
+            setArtIndex(artIndex - 1)
+        } else if (currentSection !== 1) {
+            setIsModal(false)
+            return navigate(`gallery/section${currentSection - 1}`)
+        }
     }
-
     const nextArt = () => {
-
+        if (artIndex < items.length - 1) {
+            setModalArt(items[artIndex + 1])
+            setArtIndex(artIndex + 1)
+        } else if (currentSection !== 7) {
+            setIsModal(false)
+            return navigate(`gallery/section${currentSection + 1}`)
+        }
     }
 
     return (
@@ -78,10 +92,12 @@ const ArtModal = () => {
                     <button onClick={() => prevArt()}>
                         <svg className="w-6 h-6" viewBox="0 0 26 47" xmlns="http://www.w3.org/2000/svg"><path d="M23.1 46.2l2.8-2.7L5.5 23.1 25.9 2.7 23.1 0 0 23.1l23.1 23.1z"></path></svg>                    
                     </button>
-                    <p>02</p>
+                    <p>{'0' + currentSection}</p>
                 </div>
 
-                <div className="w-ful h-[1px] my-2 mx-[5px] bg-black"></div>
+                <div className="h-[1px] my-2 mx-[5px] bg-zinc-200">
+                    <div style={{ width: `${(artIndex + 1 ) * 5}%` }} className="bg-black h-full"></div>
+                </div>
 
                 <div className="flex justify-end">
                     <button onClick={() => nextArt()}>
