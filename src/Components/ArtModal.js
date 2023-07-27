@@ -22,7 +22,7 @@ const ArtModal = () => {
     }
 
     const prevArt = () => {
-        
+
     }
 
     const nextArt = () => {
@@ -30,16 +30,16 @@ const ArtModal = () => {
     }
 
     return (
-        <div className="w-screen h-screen fixed bg-white z-40">
+        <div className="cont w-screen h-screen fixed bg-white z-40">
             <div className="h-full w-max pt-16 m-auto flex flex-col justify-center items-end">
-                <img className="w-[490px] h-[490px] " src={modalArt.img} alt="" /> 
+                <img className="w-[490px] h-[490px] md:w-[275px] md:h-[275px]" src={modalArt.img} alt="" /> 
 
                 <div className="mt-6 py-2 px-4 shadow-xl">
                     <p>{modalArt.name}</p>
                 </div>
             </div>
 
-            <div className="h-full py-[12%] text-xl flex flex-col justify-between items-end absolute top-0 right-10"> 
+            <div className="h-full md:hidden py-[12%] text-xl flex flex-col justify-between items-end absolute top-0 right-10"> 
                 <div className="w-40">
                     <div className="flex justify-between">
                         <button onClick={() => prevArt()}>
@@ -71,6 +71,39 @@ const ArtModal = () => {
                 <button onClick={() => handleContactTab(modalArt.name)}>
                     <span>Contact</span>
                 </button>
+            </div>
+
+            <div className="text-xl absolute top-6 w-[50%] right-[7%] -md:hidden">
+                <div className="flex justify-between pr-1">
+                    <button onClick={() => prevArt()}>
+                        <svg className="w-6 h-6" viewBox="0 0 26 47" xmlns="http://www.w3.org/2000/svg"><path d="M23.1 46.2l2.8-2.7L5.5 23.1 25.9 2.7 23.1 0 0 23.1l23.1 23.1z"></path></svg>                    
+                    </button>
+                    <p>02</p>
+                </div>
+
+                <div className="w-ful h-[1px] my-2 mx-[5px] bg-black"></div>
+
+                <div className="flex justify-end">
+                    <button onClick={() => nextArt()}>
+                        <svg className="w-6 h-6 rotate-180" viewBox="0 0 26 47" xmlns="http://www.w3.org/2000/svg"><path d="M23.1 46.2l2.8-2.7L5.5 23.1 25.9 2.7 23.1 0 0 23.1l23.1 23.1z"></path></svg>                    
+                    </button>
+                </div>
+            </div>
+
+            <div className="absolute w-full px-[7%] flex justify-between bottom-6 -md:hidden">
+                <button onClick={() => handleContactTab(modalArt.name)}>
+                    <span>Contact</span>
+                </button>
+
+                <div className="flex items-center">
+                    <span>Back</span>
+                    <button onClick={() => setIsModal(false)} className="w-8 p-1 ml-4">
+                        <svg className="" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+                            <line x1="0" y1="0" x2="100" y2="100" stroke="black" strokeWidth="12" />
+                            <line x1="0" y1="100" x2="100" y2="0" stroke="black" strokeWidth="12" />
+                        </svg>
+                    </button>
+                </div>
             </div>
 
             {isContact && //Contact Tab
