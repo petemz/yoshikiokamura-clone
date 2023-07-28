@@ -3,7 +3,7 @@ import { Context } from "../Context"
 import { Link } from "react-router-dom"
 
 const NavBar = () => {
-    const { currentPage, setCurrentPage, setCurrentSection } = useContext(Context)
+    const { currentPage, setCurrentPage, setCurrentSection, setIsModal } = useContext(Context)
 
     const [isNav, setIsNav] = useState(false)
 
@@ -13,6 +13,7 @@ const NavBar = () => {
         setCurrentPage(page)
         setIsNav(false)
         setCurrentSection(1)
+        setIsModal(false)
     }
 
     const arrowRight = 
@@ -24,10 +25,10 @@ const NavBar = () => {
         <>
             {isNav ? 
                 <div className="w-72 px-6 py-3 flex flex-col justify-end bg-white fixed top-0 left-0 z-50 h-full max-h-screen border-r-2 border-zinc-100">
-                    <ul className="text-[30px] font-light mb-[35%]">
+                    <ul className="text-[29px] font-light mb-[28%]">
                         {links.map((link, index) => 
                             <li 
-                                className="my-1 px-2 w-max group uppercase" key={index}    
+                                className="my-[2px] px-2 w-max group uppercase" key={index}    
                             >
                                 <Link 
                                     className="flex items-center" to={link === 'gallery' ? '/' : `/${link}`}
@@ -38,7 +39,7 @@ const NavBar = () => {
                                             {arrowRight}
                                         </div>
                                     }
-                                    <span className={`${currentPage === link ? 'font-bold text-zinc-300' : 'group-hover:font-normal'}`}>{link}</span>
+                                    <span className={`${currentPage === link ? 'font-bold text-zinc-300' : 'group-hover:font-semibold'}`}>{link}</span>
                                 </Link>
                             </li>
                         )} 
