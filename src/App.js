@@ -1,4 +1,4 @@
-import { useContext, useEffect, useState } from 'react';
+import { useContext } from 'react';
 
 import CustomCursor from './Components/Cursor';
 import { Routes, Route } from "react-router-dom"
@@ -11,7 +11,6 @@ import News from './Pages/News'
 import Section from './Components/Section';
 import ArtModal from './Components/ArtModal';
 import NavBar from './Components/Nav'
-import AnimatedCursor from "react-animated-cursor"
 
 const App = () => {
 
@@ -48,30 +47,6 @@ const App = () => {
           )
         })}
       </Routes>
-
-      {/*<AnimatedCursor 
-        innerSize={10}
-        outerSize={0.1}
-        innerScale={0}
-        outerScale={350}
-        outerAlpha={0}
-        hasBlendMode={true}
-        trailingSpeed={1}
-        color="0, 0, 0"
-        innerStyle={{
-          //backgroundColor: 'rgba(0, 0, 0, 0.1)', border: '1px solid #000'
-          border: '1px solid #000'
-        }}
-        outerStyle={{
-          border: '1px solid #000',
-          backgroundColor: 'rgba(0, 0, 0, 0.1)',
-        }}
-        clickables={[
-          'a',
-          'button',
-          '.art'
-        ]}
-      />*/}
 
       {/*
         <div className="h-full inline-block w-[700vw] absolute top-0 bg-slate-900" >

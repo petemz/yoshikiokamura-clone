@@ -38,9 +38,9 @@ const News = () => {
             <ul>
                 {news.map((item, index) => {
                     return(
-                        <li className="my-16 md:my-6 flex tracking-wide" key={index}>
+                        <li className="my-10 md:my-6 flex tracking-wide" key={index}>
                             <p className="text-zinc-400">{item.date}</p>
-                            <p className="w-max pb-3 md:pb-2 ml-8 border-b border-black">{item.intro}</p>
+                            <a href="#"><p className="w-max pb-3 md:pb-2 ml-8 border-b border-black">{item.intro}</p></a>
                         </li>
                     )}
                 )}

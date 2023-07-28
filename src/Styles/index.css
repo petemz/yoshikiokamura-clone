@@ -66,13 +66,7 @@ code {
   }
 }
 
-.arrow-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.arrow {
+.direction-arrow {
   animation: slideInOut 3s linear infinite;
   transition: opacity 1s ease-out;
 }

@@ -1,7 +1,6 @@
 import { useState, useContext } from "react"
 import { Context } from "../Context"
 import { Link } from "react-router-dom"
-import AnimatedCursor from "react-animated-cursor"
 
 const NavBar = () => {
     const { currentPage, setCurrentPage, setCurrentSection, setIsModal } = useContext(Context)
@@ -24,30 +23,6 @@ const NavBar = () => {
   
     return (
         <div>
-            {/*<AnimatedCursor 
-                innerSize={10}
-                outerSize={0.1}
-                innerScale={0}
-                outerScale={350}
-                outerAlpha={0}
-                hasBlendMode={true}
-                trailingSpeed={1}
-                color="0, 0, 0"
-                innerStyle={{
-                //backgroundColor: 'rgba(0, 0, 0, 0.1)', border: '1px solid #000'
-                border: '1px solid #000'
-                }}
-                outerStyle={{
-                border: '1px solid #000',
-                backgroundColor: 'rgba(0, 0, 0, 0.1)',
-                }}
-                clickables={[
-                'a',
-                'button',
-                '.art'
-                ]}
-            />*/}
-
             {isNav ? 
                 <div className="w-72 px-6 py-3 flex flex-col justify-end bg-white fixed top-0 left-0 z-50 h-full max-h-screen border-r-2 border-zinc-100">
                     <ul className="text-[29px] font-light mb-[28%]">
@@ -58,6 +33,7 @@ const NavBar = () => {
                                 <Link 
                                     className="flex items-center" to={link === 'gallery' ? '/' : `/${link}`}
                                     onClick={() => handleLink(link)}    
+                                    style={{pointerEvents: currentPage === link ? 'none' : ''}}
                                 >
                                     {currentPage !== link && 
                                         <div className="mr-1 hidden group-hover:block w-5">

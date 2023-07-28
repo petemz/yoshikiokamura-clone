@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom"
 
 
 const ArtModal = () => {
-    const { currentSection, modalArt, setModalArt, setIsModal, items, artIndex, setArtIndex } = useContext(Context)
+    const { currentSection, setIsHoveringButtonOrLink, modalArt, setModalArt, setIsModal, items, artIndex, setArtIndex } = useContext(Context)
 
     const [isContact, setIsContact] = useState()
     const [isCopied, setIsCopied] = useState(false)
@@ -28,6 +28,7 @@ const ArtModal = () => {
         if (artIndex !== 0) {
             setModalArt(items[artIndex - 1])
             setArtIndex(artIndex - 1)
+            //setIsHoveringButtonOrLink(false)
         } else if (currentSection !== 1) {
             setIsModal(false)
             return navigate(`gallery/section${currentSection - 1}`)
@@ -37,6 +38,7 @@ const ArtModal = () => {
         if (artIndex < items.length - 1) {
             setModalArt(items[artIndex + 1])
             setArtIndex(artIndex + 1)
+            //setIsHoveringButtonOrLink(false)
         } else if (currentSection !== 7) {
             setIsModal(false)
             return navigate(`gallery/section${currentSection + 1}`)
@@ -56,7 +58,7 @@ const ArtModal = () => {
             <div className="h-full md:hidden py-[12%] text-xl flex flex-col justify-between items-end absolute top-0 right-10"> 
                 <div className="w-40">
                     <div className="flex justify-between">
-                        <button onClick={() => prevArt()}>
+                        <button className="angleBrk" onClick={() => prevArt()}>
                             <svg xmlns="http://www.w3.org/2000/svg" height="30px" viewBox="0 0 320 512"><path d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 246.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/></svg>
                         </button>
 
@@ -68,7 +70,7 @@ const ArtModal = () => {
                     </div>
 
                     <div className="flex justify-end">
-                        <button onClick={() => nextArt()}>
+                        <button className="angleBrk" onClick={() => nextArt()}>
                             <svg xmlns="http://www.w3.org/2000/svg" height="30px" viewBox="0 0 320 512"><path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"/></svg>                   
                         </button>
                     </div>
@@ -91,7 +93,7 @@ const ArtModal = () => {
 
             <div className="text-xl absolute top-6 w-[50%] right-[7%] -md:hidden">
                 <div className="flex justify-between pr-1">
-                    <button onClick={() => prevArt()}>
+                    <button className="angleBrk" onClick={() => prevArt()}>
                         <svg className="w-6 h-6" viewBox="0 0 26 47" xmlns="http://www.w3.org/2000/svg"><path d="M23.1 46.2l2.8-2.7L5.5 23.1 25.9 2.7 23.1 0 0 23.1l23.1 23.1z"></path></svg>                    
                     </button>
                     <p>{'0' + currentSection}</p>
@@ -102,7 +104,7 @@ const ArtModal = () => {
                 </div>
 
                 <div className="flex justify-end">
-                    <button onClick={() => nextArt()}>
+                    <button className="angleBrk" onClick={() => nextArt()}>
                         <svg className="w-6 h-6 rotate-180" viewBox="0 0 26 47" xmlns="http://www.w3.org/2000/svg"><path d="M23.1 46.2l2.8-2.7L5.5 23.1 25.9 2.7 23.1 0 0 23.1l23.1 23.1z"></path></svg>                    
                     </button>
                 </div>
