@@ -30,17 +30,16 @@ const Projects = () => {
         setCurrentPage('projects')
     })
 
-
     return (
-        <div className="w-full h-max pl-24 pb-14 p-3">
-            <h1 className="text-7xl font-semibold">PROJECTS</h1>
+        <div className="w-full h-max md:pt-20 pl-24 md:pl-12 pb-14 p-3">
+            <h1 className="text-7xl md:text-5xl md:mb-12 font-semibold">PROJECTS</h1>
             
             <ul>
                 {projects.map((project, index) => {
                     return(
-                        <li className="my-12 flex tracking-wide" key={index}>
+                        <li className="my-16 md:my-6 flex tracking-wide" key={index}>
                             <p className="text-zinc-400">{project.date}</p>
-                            <p className="w-max pb-3 ml-7 border-b border-black">{project.desc}</p>
+                            <p className="w-max pb-3 md:pb-2 ml-8 border-b border-black">{project.desc}</p>
                         </li>
                     )}
                 )}
