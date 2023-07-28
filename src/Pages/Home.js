@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef, useContext } from "react"
 import { Context } from "../Context"
-import Indicator from "./Indicator"
-import Art from "./Arts"
+import Indicator from "../Components/Indicator"
+import Art from "../Components/Arts"
 import data from "../Assets/Data"
 import homeImg from "../Assets/home-img.jpg"
 

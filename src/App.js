@@ -1,17 +1,20 @@
-import { useContext } from 'react';
+import { useContext, useEffect, useState } from 'react';
+
+import CustomCursor from './Components/Cursor';
 import { Routes, Route } from "react-router-dom"
 import { Context } from "./Context"
-import Home from "./Components/Home"
-import Projects from './Components/Projects'
-import Books from './Components/Books'
-import Info from './Components/Info'
-import News from './Components/News'
+import Home from "./Pages/Home"
+import Projects from './Pages/Projects'
+import Books from './Pages/Books'
+import Info from './Pages/Info'
+import News from './Pages/News'
 import Section from './Components/Section';
 import ArtModal from './Components/ArtModal';
 import NavBar from './Components/Nav'
 import AnimatedCursor from "react-animated-cursor"
 
 const App = () => {
+
   const { isModal, modalArt } = useContext(Context)
 
   const routes = [
@@ -33,6 +36,7 @@ const App = () => {
     <div
       className='flex bg-white w-full h-screen '
     >
+      <CustomCursor/>
       <NavBar />
 
       <Routes>
@@ -45,7 +49,7 @@ const App = () => {
         })}
       </Routes>
 
-      <AnimatedCursor 
+      {/*<AnimatedCursor 
         innerSize={10}
         outerSize={0.1}
         innerScale={0}
@@ -67,7 +71,7 @@ const App = () => {
           'button',
           '.art'
         ]}
-      />
+      />*/}
 
       {/*
         <div className="h-full inline-block w-[700vw] absolute top-0 bg-slate-900" >
