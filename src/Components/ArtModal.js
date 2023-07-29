@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom"
 
 
 const ArtModal = () => {
-    const { currentSection, setIsHoveringButtonOrLink, modalArt, setModalArt, setIsModal, items, artIndex, setArtIndex } = useContext(Context)
+    const { currentSection, modalArt, setModalArt, setIsModal, items, artIndex, setArtIndex } = useContext(Context)
 
     const [isContact, setIsContact] = useState()
     const [isCopied, setIsCopied] = useState(false)
