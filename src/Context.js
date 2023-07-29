@@ -7,6 +7,8 @@ const ContextProvider = (props) => {
     const [currentPage, setCurrentPage] = useState()
     const [currentSection, setCurrentSection] = useState()
     
+    const [isHoveringButtonOrLink, setIsHoveringButtonOrLink] = useState(false)
+    
     const [isModal, setIsModal] = useState(false)
     const [modalArt, setModalArt] = useState({})
     const [artIndex, setArtIndex] = useState(0)
@@ -20,7 +22,7 @@ const ContextProvider = (props) => {
     }
 
     return (
-        <Context.Provider value={{currentPage, setCurrentPage, currentSection, setCurrentSection, isModal, setIsModal, modalArt, setModalArt, handleModal, items, artIndex, setArtIndex}}>
+        <Context.Provider value={{currentPage, setCurrentPage, currentSection, setCurrentSection, isHoveringButtonOrLink, setIsHoveringButtonOrLink, isModal, setIsModal, modalArt, setModalArt, handleModal, items, artIndex, setArtIndex}}>
             {props.children}
         </Context.Provider>
     )
