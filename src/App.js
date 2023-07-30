@@ -1,6 +1,4 @@
-import { useContext } from 'react';
-
-import CustomCursor from './Components/Cursor';
+import { useContext } from 'react'
 import { Routes, Route } from "react-router-dom"
 import { Context } from "./Context"
 import Home from "./Pages/Home"
@@ -8,12 +6,12 @@ import Projects from './Pages/Projects'
 import Books from './Pages/Books'
 import Info from './Pages/Info'
 import News from './Pages/News'
-import Section from './Components/Section';
-import ArtModal from './Components/ArtModal';
+import CustomCursor from './Components/Cursor'
+import Section from './Components/Section'
 import NavBar from './Components/Nav'
+import ArtModal from './Components/ArtModal'
 
 const App = () => {
-
   const { isModal, modalArt } = useContext(Context)
 
   const routes = [
@@ -32,10 +30,9 @@ const App = () => {
   ]
 
   return (
-    <div
-      className='flex bg-white w-full h-screen '
-    >
+    <div className='flex bg-white w-full h-screen'>
       <CustomCursor/>
+
       <NavBar />
 
       <Routes>
@@ -47,12 +44,6 @@ const App = () => {
           )
         })}
       </Routes>
-
-      {/*
-        <div className="h-full inline-block w-[700vw] absolute top-0 bg-slate-900" >
-          <WaveAnimation />
-        </div>
-      */}
       
       {isModal && <ArtModal item={modalArt}/>}
     </div>

@@ -2,7 +2,7 @@ import { useContext } from "react"
 import { Context } from "../Context"
 
 const Art = ({items}) => {
-    const { handleModal, currentSection } = useContext((Context))
+    const { handleModal } = useContext((Context))
 
     const arrowRight = 
         <svg className="w-10" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
@@ -14,51 +14,44 @@ const Art = ({items}) => {
             {items.map((item, index) => {
                 const position = () => {
                     if (index % 4 === 1) {
-                        return {marginBottom: '50vh', }
+                        return {marginBottom: '50vh'}
                     } else if (index % 4 === 3) {
-                        return {marginTop: '50vh', }
+                        return {marginTop: '50vh'}
                     }
                 }
 
                 const part = () => {
-                    let x = (currentSection - 1) * 20
-
-                    if (index + 1 === 1) {
-                        return(
-                            <div className="absolute top-2 w-max">
-                                <span className="text-6xl font-medium tracking-widest">{`${x + 1}-${x + 5}`}</span>
-                                <div className="flex justify-end">
-                                    {arrowRight}
+                    switch (index + 1) {
+                        case 1:
+                            return (
+                                <div className="absolute top-2 w-max">
+                                    <span className="text-6xl font-medium tracking-widest">1-5</span>
+                                    <div className="flex justify-end">{arrowRight}</div>
                                 </div>
-                            </div>
-                        )
-                    } else if (index + 1 === 6) {
-                        return(
-                            <div className="absolute top-2 w-max">
-                                <span className="text-6xl font-medium tracking-widest">{`${x + 6}-${x + 10}`}</span>
-                                <div className="flex justify-end">
-                                    {arrowRight}
+                            )
+                        case 6:
+                            return (
+                                <div className="absolute top-2 w-max">
+                                    <span className="text-6xl font-medium tracking-widest">6-10</span>
+                                    <div className="flex justify-end">{arrowRight}</div>
                                 </div>
-                            </div>
-                        )
-                    } else if (index + 1 === 11) {
-                        return(
-                            <div className="absolute top-2 w-max">
-                                <span className="text-6xl font-medium tracking-widest">{`${x + 11}-${x + 15}`}</span>
-                                <div className="flex justify-end">
-                                    {arrowRight}
+                            )
+                        case 11:
+                            return (
+                                <div className="absolute top-2 w-max">
+                                    <span className="text-6xl font-medium tracking-widest">11-15</span>
+                                    <div className="flex justify-end">{arrowRight}</div>
                                 </div>
-                            </div>
-                        )
-                    } else if (index + 1 === 16) {
-                        return(
-                            <div className="absolute top-2 w-max">
-                                <span className="text-6xl font-medium">{`${x + 16}-${x + 20}`}</span>
-                                <div className="flex justify-end">
-                                    {arrowRight}
+                            )
+                        case 16:
+                            return (
+                                <div className="absolute top-2 w-max">
+                                    <span className="text-6xl font-medium tracking-wides">16-20</span>
+                                    <div className="flex justify-end">{arrowRight}</div>
                                 </div>
-                            </div>
-                        )
+                            )
+                        default:
+                            return null
                     }
                 }
 
@@ -77,13 +70,10 @@ const Art = ({items}) => {
                             </div>
                         </div>
 
-                        {
-                            part()
-                        }
+                        {part()}
                     </div>
                 )}
             )}
-            
         </div>
     )
 }

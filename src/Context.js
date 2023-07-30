@@ -6,9 +6,7 @@ const Context = createContext()
 const ContextProvider = (props) => {
     const [currentPage, setCurrentPage] = useState()
     const [currentSection, setCurrentSection] = useState()
-    
     const [isHoveringButtonOrLink, setIsHoveringButtonOrLink] = useState(false)
-    
     const [isModal, setIsModal] = useState(false)
     const [modalArt, setModalArt] = useState({})
     const [artIndex, setArtIndex] = useState(0)

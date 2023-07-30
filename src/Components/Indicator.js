@@ -21,7 +21,7 @@ const Indicator = ({pageEnd}) => {
     }
 
     return (
-        <div className="flex items-center text-xl font-light px-1 m-auto h-full overflow-visible relative">
+        <nav className="flex items-center text-xl font-light px-1 m-auto h-full overflow-visible relative">
             <ul className="h-max flex flex-col-reverse">
                 {indicators.map((indicator, index) => {
                     return(
@@ -68,7 +68,7 @@ const Indicator = ({pageEnd}) => {
             <div id="grad" className="w-[1.8px] h-full absolute left-[44px]">
                 {/*Gradient divider line*/}
             </div>
-        </div>
+        </nav>
     )
 }
 

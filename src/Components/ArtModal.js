@@ -16,7 +16,6 @@ const ArtModal = () => {
         setIsContact(false)
         setIsCopied(false)
     }
-
     const handleCopy = () => {
         setIsCopied(true)
         navigator.clipboard.writeText('Name:\nCountry:\nShipping Address:\nArtwork Title:')
