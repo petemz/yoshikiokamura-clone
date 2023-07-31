@@ -5,6 +5,7 @@ const CustomCursor = () => {
     const { isHoveringButtonOrLink, setIsHoveringButtonOrLink } = useContext(Context)
     const [cursorPosition, setCursorPosition] = useState({ x: 0, y: 0 })
     const [isHoveringArt, setIsHoveringArt] = useState(false)
+    const [isCursorVisible, setIsCursorVisible] = useState(false)
 
     const handleMouseEnterButtonOrLink = (e) => {
         let targetName = e.currentTarget.className
@@ -37,6 +38,7 @@ const CustomCursor = () => {
     useEffect(() => {
         const handleMouseMove = (e) => {
             setCursorPosition({ x: e.clientX, y: e.clientY })
+            setIsCursorVisible(true); // on render show the cursor only when the mouse moves into the viewport
         }
 
         window.addEventListener('mousemove', handleMouseMove)
@@ -56,7 +58,7 @@ const CustomCursor = () => {
     // Check for hover support using feature detection
     const supportsHover = window.matchMedia('(hover: hover)').matches;
 
-    if (!supportsHover) {
+    if (!supportsHover || !isCursorVisible) {
         return null; // Don't render the cursor on devices that don't support hover (most mobile devices)
     }
 
