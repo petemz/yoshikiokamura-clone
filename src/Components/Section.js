@@ -2,12 +2,12 @@ import { useState, useEffect, useRef, useContext } from "react"
 import { Context } from "../Context"
 import Art from "./Arts";
 import Indicator from "./Indicator"
-import data from "../Assets/Data"
+import allArts from "../Assets/allArts"
 
 const Section = ({section}) => {
     const { setCurrentSection } = useContext(Context)
 
-    const items = data.slice(20 * (section - 1), 20 * section)
+    const items = allArts.slice(20 * (section - 1), 20 * section)
 
     const xScrollRef = useRef(null);
     const [isDragging, setIsDragging] = useState(false);

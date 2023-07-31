@@ -2,17 +2,14 @@ import { useState, useEffect, useRef, useContext } from "react"
 import { Context } from "../Context"
 import Indicator from "../Components/Indicator"
 import Art from "../Components/Arts"
-import data from "../Assets/Data"
 import homeImg from "../Assets/home-img.jpg"
 
 const Home = () => {
-    const items = data.slice(0, 20)
-
-    const { setCurrentPage, setCurrentSection } = useContext(Context)
-    const xScrollRef = useRef(null);
-    const [isDragging, setIsDragging] = useState(false);
-    const [startX, setStartX] = useState(0);
-    const [scrollLeft, setScrollLeft] = useState(0);
+    const { setCurrentPage, setCurrentSection, items } = useContext(Context)
+    const xScrollRef = useRef(null)
+    const [isDragging, setIsDragging] = useState(false)
+    const [startX, setStartX] = useState(0)
+    const [scrollLeft, setScrollLeft] = useState(0)
     //scrollEnd is for progress bar
     const [scrollEnd, setScrollEnd] = useState(0)
 
