@@ -1,4 +1,4 @@
-import { useContext } from 'react'
+import { useContext, useState, useEffect } from 'react'
 import { Routes, Route } from "react-router-dom"
 import { Context } from "./Context"
 import Home from "./Pages/Home"
@@ -10,6 +10,7 @@ import CustomCursor from './Components/Cursor'
 import Section from './Components/Section'
 import NavBar from './Components/Nav'
 import ArtModal from './Components/ArtModal'
+import LoadingSlide from './Components/LoadingSlide'
 
 const App = () => {
   const { isModal, modalArt } = useContext(Context)
@@ -29,6 +30,12 @@ const App = () => {
     { component: <Section section={7}/>, path: '/gallery/section7'},
   ]
 
+  const [isLoading, setIsLoading] = useState(true)  
+
+  useEffect(() => {
+    setTimeout(() => {setIsLoading(false)}, 1400)
+  })
+
   return (
     <div className='flex bg-white w-full h-screen'>
       <CustomCursor/>
@@ -46,6 +53,8 @@ const App = () => {
       </Routes>
       
       {isModal && <ArtModal item={modalArt}/>}
+
+      {isLoading && <LoadingSlide/>}
     </div>
   )
 }
