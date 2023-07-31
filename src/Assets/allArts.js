@@ -1,676 +1,664 @@
-import homeImg from "./home-img.jpg"
-import art1 from "./Arts/art-1.jpg"
-import art2 from "./Arts/art-2.jpg"
-import art3 from "./Arts/art-3.jpg"
-import art4 from "./Arts/art-4.jpg"
-import art5 from "./Arts/art-5.jpg"
-import art6 from "./Arts/art-6.jpg"
-import art7 from "./Arts/art-7.jpg"
-import art8 from "./Arts/art-8.jpg"
-import art9 from "./Arts/art-9.jpg"
-import art10 from "./Arts/art-10.jpg"
-
-const data = [
+const alllArts = [
     {
         name: "sandy beach", 
-        img: homeImg, 
+        img: require("./home-img.jpg"), 
         available: true
     },
     {
         name: "seaside", 
-        img: art1, 
+        img: require("./Arts/art-1.jpg"), 
         available: false
     },
     {
         name: "flying fish", 
-        img: art2, 
+        img: require("./Arts/art-2.jpg"), 
         available: true
     },
     {
         name: "summer wave", 
-        img: art3, 
+        img: require("./Arts/art-3.jpg"), 
         available: true
     },
     {
         name: "blue storm", 
-        img: art4, 
+        img: require("./Arts/art-4.jpg"), 
         available: true
     },
     {
         name: "hydrangea", 
-        img: art5, 
+        img: require("./Arts/art-5.jpg"), 
         available: true
     },
     {
         name: "ruby", 
-        img: art6,
+        img: require("./Arts/art-6.jpg"),
         available: true
     },
     {
         name: "mercury", 
-        img: art7, 
+        img: require("./Arts/art-7.jpg"), 
         available: false
     },
     {
         name: "wisteria purple", 
-        img: art8, 
+        img: require("./Arts/art-8.jpg"), 
         available: true
     },
     {
         name: "Fukuroda", 
-        img: art9, 
+        img: require("./Arts/art-9.jpg"), 
         available: true
     },
     {
         name: "Sun wheel", 
-        img: art10, 
+        img: require("./Arts/art-10.jpg"), 
         available: true
     },
     {
         name: "sandy beach", 
-        img: homeImg, 
+        img: require("./home-img.jpg"), 
         available: true
     },
     {
         name: "seaside", 
-        img: art1, 
+        img: require("./Arts/art-1.jpg"), 
         available: false
     },
     {
         name: "flying fish", 
-        img: art2, 
+        img: require("./Arts/art-2.jpg"), 
         available: true
     },
     {
         name: "summer wave", 
-        img: art3, 
+        img: require("./Arts/art-3.jpg"), 
         available: true
     },
     {
         name: "blue storm", 
-        img: art4, 
+        img: require("./Arts/art-4.jpg"), 
         available: true
     },
     {
         name: "hydrangea", 
-        img: art5, 
+        img: require("./Arts/art-5.jpg"), 
         available: true
     },
     {
         name: "ruby", 
-        img: art6,
+        img: require("./Arts/art-6.jpg"),
         available: true
     },
     {
         name: "mercury", 
-        img: art7, 
+        img: require("./Arts/art-7.jpg"),
         available: false
     },
     {
         name: "wisteria purple", 
-        img: art8, 
+        img: require("./Arts/art-8.jpg"),
         available: true
     },
     {
         name: "Fukuroda", 
-        img: art9, 
+        img: require("./Arts/art-9.jpg"),
         available: true
     },
     {
         name: "Sun wheel", 
-        img: art10, 
+        img: require("./Arts/art-10.jpg"), 
         available: true
     },
     {
         name: "sandy beach", 
-        img: homeImg, 
+        img: require("./home-img.jpg"), 
         available: true
     },
     {
         name: "seaside", 
-        img: art1, 
+        img: require("./Arts/art-1.jpg"), 
         available: false
     },
     {
         name: "flying fish", 
-        img: art2, 
+        img: require("./Arts/art-2.jpg"), 
         available: true
     },
     {
         name: "summer wave", 
-        img: art3, 
+        img: require("./Arts/art-3.jpg"), 
         available: true
     },
     {
         name: "blue storm", 
-        img: art4, 
+        img: require("./Arts/art-4.jpg"), 
         available: true
     },
     {
         name: "hydrangea", 
-        img: art5, 
+        img: require("./Arts/art-5.jpg"), 
         available: true
     },
     {
         name: "ruby", 
-        img: art6,
+        img: require("./Arts/art-6.jpg"),
         available: true
     },
     {
         name: "mercury", 
-        img: art7, 
+        img: require("./Arts/art-7.jpg"),
         available: false
     },
     {
         name: "wisteria purple", 
-        img: art8, 
+        img: require("./Arts/art-8.jpg"),
         available: true
     },
     {
         name: "Fukuroda", 
-        img: art9, 
+        img: require("./Arts/art-9.jpg"),
         available: true
     },
     {
         name: "Sun wheel", 
-        img: art10, 
+        img: require("./Arts/art-10.jpg"), 
         available: true
     },
     {
         name: "sandy beach", 
-        img: homeImg, 
+        img: require("./home-img.jpg"), 
         available: true
     },
     {
         name: "seaside", 
-        img: art1, 
+        img: require("./Arts/art-1.jpg"), 
         available: false
     },
     {
         name: "flying fish", 
-        img: art2, 
+        img: require("./Arts/art-2.jpg"), 
         available: true
     },
     {
         name: "summer wave", 
-        img: art3, 
+        img: require("./Arts/art-3.jpg"), 
         available: true
     },
     {
         name: "blue storm", 
-        img: art4, 
+        img: require("./Arts/art-4.jpg"), 
         available: true
     },
     {
         name: "hydrangea", 
-        img: art5, 
+        img: require("./Arts/art-5.jpg"), 
         available: true
     },
     {
         name: "ruby", 
-        img: art6,
+        img: require("./Arts/art-6.jpg"),
         available: true
     },
     {
         name: "mercury", 
-        img: art7, 
+        img: require("./Arts/art-7.jpg"),
         available: false
     },
     {
         name: "wisteria purple", 
-        img: art8, 
+        img: require("./Arts/art-8.jpg"),
         available: true
     },
     {
         name: "Fukuroda", 
-        img: art9, 
+        img: require("./Arts/art-9.jpg"),
         available: true
     },
     {
         name: "Sun wheel", 
-        img: art10, 
+        img: require("./Arts/art-10.jpg"), 
         available: true
     },
     {
         name: "sandy beach", 
-        img: homeImg, 
+        img: require("./home-img.jpg"), 
         available: true
     },
     {
         name: "seaside", 
-        img: art1, 
+        img: require("./Arts/art-1.jpg"), 
         available: false
     },
     {
         name: "flying fish", 
-        img: art2, 
+        img: require("./Arts/art-2.jpg"), 
         available: true
     },
     {
         name: "summer wave", 
-        img: art3, 
+        img: require("./Arts/art-3.jpg"), 
         available: true
     },
     {
         name: "blue storm", 
-        img: art4, 
+        img: require("./Arts/art-4.jpg"), 
         available: true
     },
     {
         name: "hydrangea", 
-        img: art5, 
+        img: require("./Arts/art-5.jpg"), 
         available: true
     },
     {
         name: "ruby", 
-        img: art6,
+        img: require("./Arts/art-6.jpg"),
         available: true
     },
     {
         name: "mercury", 
-        img: art7, 
+        img: require("./Arts/art-7.jpg"),
         available: false
     },
     {
         name: "wisteria purple", 
-        img: art8, 
+        img: require("./Arts/art-8.jpg"),
         available: true
     },
     {
         name: "Fukuroda", 
-        img: art9, 
+        img: require("./Arts/art-9.jpg"),
         available: true
     },
     {
         name: "Sun wheel", 
-        img: art10, 
+        img: require("./Arts/art-10.jpg"), 
         available: true
     },
     {
         name: "sandy beach", 
-        img: homeImg, 
+        img: require("./home-img.jpg"), 
         available: true
     },
     {
         name: "seaside", 
-        img: art1, 
+        img: require("./Arts/art-1.jpg"), 
         available: false
     },
     {
         name: "flying fish", 
-        img: art2, 
+        img: require("./Arts/art-2.jpg"), 
         available: true
     },
     {
         name: "summer wave", 
-        img: art3, 
+        img: require("./Arts/art-3.jpg"), 
         available: true
     },
     {
         name: "blue storm", 
-        img: art4, 
+        img: require("./Arts/art-4.jpg"), 
         available: true
     },
     {
         name: "hydrangea", 
-        img: art5, 
+        img: require("./Arts/art-5.jpg"), 
         available: true
     },
     {
         name: "ruby", 
-        img: art6,
+        img: require("./Arts/art-6.jpg"),
         available: true
     },
     {
         name: "mercury", 
-        img: art7, 
+        img: require("./Arts/art-7.jpg"),
         available: false
     },
     {
         name: "wisteria purple", 
-        img: art8, 
+        img: require("./Arts/art-8.jpg"),
         available: true
     },
     {
         name: "Fukuroda", 
-        img: art9, 
+        img: require("./Arts/art-9.jpg"),
         available: true
     },
     {
         name: "Sun wheel", 
-        img: art10, 
+        img: require("./Arts/art-10.jpg"), 
         available: true
     },
     {
         name: "sandy beach", 
-        img: homeImg, 
+        img: require("./home-img.jpg"), 
         available: true
     },
     {
         name: "seaside", 
-        img: art1, 
+        img: require("./Arts/art-1.jpg"), 
         available: false
     },
     {
         name: "flying fish", 
-        img: art2, 
+        img: require("./Arts/art-2.jpg"), 
         available: true
     },
     {
         name: "summer wave", 
-        img: art3, 
+        img: require("./Arts/art-3.jpg"), 
         available: true
     },
     {
         name: "blue storm", 
-        img: art4, 
+        img: require("./Arts/art-4.jpg"), 
         available: true
     },
     {
         name: "hydrangea", 
-        img: art5, 
+        img: require("./Arts/art-5.jpg"), 
         available: true
     },
     {
         name: "ruby", 
-        img: art6,
+        img: require("./Arts/art-6.jpg"),
         available: true
     },
     {
         name: "mercury", 
-        img: art7, 
+        img: require("./Arts/art-7.jpg"),
         available: false
     },
     {
         name: "wisteria purple", 
-        img: art8, 
+        img: require("./Arts/art-8.jpg"),
         available: true
     },
     {
         name: "Fukuroda", 
-        img: art9, 
+        img: require("./Arts/art-9.jpg"),
         available: true
     },
     {
         name: "Sun wheel", 
-        img: art10, 
+        img: require("./Arts/art-10.jpg"), 
         available: true
     },
     {
         name: "sandy beach", 
-        img: homeImg, 
+        img: require("./home-img.jpg"), 
         available: true
     },
     {
         name: "seaside", 
-        img: art1, 
+        img: require("./Arts/art-1.jpg"), 
         available: false
     },
     {
         name: "flying fish", 
-        img: art2, 
+        img: require("./Arts/art-2.jpg"), 
         available: true
     },
     {
         name: "summer wave", 
-        img: art3, 
+        img: require("./Arts/art-3.jpg"), 
         available: true
     },
     {
         name: "blue storm", 
-        img: art4, 
+        img: require("./Arts/art-4.jpg"), 
         available: true
     },
     {
         name: "hydrangea", 
-        img: art5, 
+        img: require("./Arts/art-5.jpg"), 
         available: true
     },
     {
         name: "ruby", 
-        img: art6,
+        img: require("./Arts/art-6.jpg"),
         available: true
     },
     {
         name: "mercury", 
-        img: art7, 
+        img: require("./Arts/art-7.jpg"),
         available: false
     },
     {
         name: "wisteria purple", 
-        img: art8, 
+        img: require("./Arts/art-8.jpg"),
         available: true
     },
     {
         name: "Fukuroda", 
-        img: art9, 
+        img: require("./Arts/art-9.jpg"),
         available: true
     },
     {
         name: "Sun wheel", 
-        img: art10, 
+        img: require("./Arts/art-10.jpg"), 
         available: true
     },
     {
         name: "sandy beach", 
-        img: homeImg, 
+        img: require("./home-img.jpg"), 
         available: true
     },
     {
         name: "seaside", 
-        img: art1, 
+        img: require("./Arts/art-1.jpg"), 
         available: false
     },
     {
         name: "flying fish", 
-        img: art2, 
+        img: require("./Arts/art-2.jpg"), 
         available: true
     },
     {
         name: "summer wave", 
-        img: art3, 
+        img: require("./Arts/art-3.jpg"), 
         available: true
     },
     {
         name: "blue storm", 
-        img: art4, 
+        img: require("./Arts/art-4.jpg"), 
         available: true
     },
     {
         name: "hydrangea", 
-        img: art5, 
+        img: require("./Arts/art-5.jpg"), 
         available: true
     },
     {
         name: "ruby", 
-        img: art6,
+        img: require("./Arts/art-6.jpg"),
         available: true
     },
     {
         name: "mercury", 
-        img: art7, 
+        img: require("./Arts/art-7.jpg"),
         available: false
     },
     {
         name: "wisteria purple", 
-        img: art8, 
+        img: require("./Arts/art-8.jpg"),
         available: true
     },
     {
         name: "Fukuroda", 
-        img: art9, 
+        img: require("./Arts/art-9.jpg"),
         available: true
     },
     {
         name: "Sun wheel", 
-        img: art10, 
+        img: require("./Arts/art-10.jpg"), 
         available: true
     },
     {
         name: "sandy beach", 
-        img: homeImg, 
+        img: require("./home-img.jpg"), 
         available: true
     },
     {
         name: "seaside", 
-        img: art1, 
+        img: require("./Arts/art-1.jpg"), 
         available: false
     },
     {
         name: "flying fish", 
-        img: art2, 
+        img: require("./Arts/art-2.jpg"), 
         available: true
     },
     {
         name: "summer wave", 
-        img: art3, 
+        img: require("./Arts/art-3.jpg"), 
         available: true
     },
     {
         name: "blue storm", 
-        img: art4, 
+        img: require("./Arts/art-4.jpg"), 
         available: true
     },
     {
         name: "hydrangea", 
-        img: art5, 
+        img: require("./Arts/art-5.jpg"), 
         available: true
     },
     {
         name: "ruby", 
-        img: art6,
+        img: require("./Arts/art-6.jpg"),
         available: true
     },
     {
         name: "mercury", 
-        img: art7, 
+        img: require("./Arts/art-7.jpg"),
         available: false
     },
     {
         name: "wisteria purple", 
-        img: art8, 
+        img: require("./Arts/art-8.jpg"),
         available: true
     },
     {
         name: "Fukuroda", 
-        img: art9, 
+        img: require("./Arts/art-9.jpg"),
         available: true
     },
     {
         name: "Sun wheel", 
-        img: art10, 
+        img: require("./Arts/art-10.jpg"), 
         available: true
     },
     {
         name: "sandy beach", 
-        img: homeImg, 
+        img: require("./home-img.jpg"), 
         available: true
     },
     {
         name: "seaside", 
-        img: art1, 
+        img: require("./Arts/art-1.jpg"), 
         available: false
     },
     {
         name: "flying fish", 
-        img: art2, 
+        img: require("./Arts/art-2.jpg"), 
         available: true
     },
     {
         name: "summer wave", 
-        img: art3, 
+        img: require("./Arts/art-3.jpg"), 
         available: true
     },
     {
         name: "blue storm", 
-        img: art4, 
+        img: require("./Arts/art-4.jpg"), 
         available: true
     },
     {
         name: "hydrangea", 
-        img: art5, 
+        img: require("./Arts/art-5.jpg"), 
         available: true
     },
     {
         name: "ruby", 
-        img: art6,
+        img: require("./Arts/art-6.jpg"),
         available: true
     },
     {
         name: "mercury", 
-        img: art7, 
+        img: require("./Arts/art-7.jpg"),
         available: false
     },
     {
         name: "wisteria purple", 
-        img: art8, 
+        img: require("./Arts/art-8.jpg"),
         available: true
     },
     {
         name: "Fukuroda", 
-        img: art9, 
+        img: require("./Arts/art-9.jpg"),
         available: true
     },
     {
         name: "Sun wheel", 
-        img: art10, 
+        img: require("./Arts/art-10.jpg"), 
         available: true
     },
     {
         name: "sandy beach", 
-        img: homeImg, 
+        img: require("./home-img.jpg"), 
         available: true
     },
     {
         name: "seaside", 
-        img: art1, 
+        img: require("./Arts/art-1.jpg"), 
         available: false
     },
     {
         name: "flying fish", 
-        img: art2, 
+        img: require("./Arts/art-2.jpg"), 
         available: true
     },
     {
         name: "summer wave", 
-        img: art3, 
+        img: require("./Arts/art-3.jpg"), 
         available: true
     },
     {
         name: "blue storm", 
-        img: art4, 
+        img: require("./Arts/art-4.jpg"), 
         available: true
     },
     {
         name: "hydrangea", 
-        img: art5, 
+        img: require("./Arts/art-5.jpg"), 
         available: true
     },
     {
         name: "ruby", 
-        img: art6,
+        img: require("./Arts/art-6.jpg"),
         available: true
     },
     {
         name: "mercury", 
-        img: art7, 
+        img: require("./Arts/art-7.jpg"),
         available: false
     },
     {
         name: "wisteria purple", 
-        img: art8, 
+        img: require("./Arts/art-8.jpg"),
         available: true
     },
     {
         name: "Fukuroda", 
-        img: art9, 
+        img: require("./Arts/art-9.jpg"),
         available: true
     },
     {
         name: "Sun wheel", 
-        img: art10, 
+        img: require("./Arts/art-10.jpg"), 
         available: true
     }
 ]
 
-export default data
+export default alllArts

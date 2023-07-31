@@ -1,5 +1,5 @@
 import { createContext, useState, } from "react"
-import data from "./Assets/Data"
+import allArts from "./Assets/allArts"
 
 const Context = createContext()
 
@@ -11,7 +11,7 @@ const ContextProvider = (props) => {
     const [modalArt, setModalArt] = useState({})
     const [artIndex, setArtIndex] = useState(0)
 
-    const items = data.slice(20 * (currentSection - 1), 20 * currentSection)
+    const items = allArts.slice(20 * (currentSection - 1), 20 * currentSection)
 
     const handleModal = (art, index) => {
         setIsModal(true)
