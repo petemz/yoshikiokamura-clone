@@ -1,6 +1,6 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "Yoshiki Clone",
+  "name": "A clone of the Yoshiki Okamura art website.",
   "icons": [
     {
       "src": "favicon.ico",

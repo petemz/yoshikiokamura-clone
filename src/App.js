@@ -1,7 +1,7 @@
 import { useContext, useState, useEffect } from 'react'
 import { Routes, Route } from "react-router-dom"
 import { Context } from "./Context"
-import Home from "./Pages/Home"
+import Gallery from "./Pages/Gallery"
 import Projects from './Pages/Projects'
 import Books from './Pages/Books'
 import Info from './Pages/Info'
@@ -16,7 +16,7 @@ const App = () => {
   const { isModal, modalArt } = useContext(Context)
 
   const routes = [
-    { component: <Home />, path: '/'},
+    { component: <Gallery />, path: '/'},
     { component: <Projects />, path: '/projects'},
     { component: <Books />, path: '/books'},
     { component: <Info />, path: '/info'},

@@ -37,10 +37,11 @@ const Books = () => {
         {title: 'that summer', img: book6, year: '2019', link: 'https://sashimimoyashi.booth.pm/items/2711296'},
     ]
 
-    const xScrollRef = useRef(null);
-    const [isDragging, setIsDragging] = useState(false);
-    const [startX, setStartX] = useState(0);
-    const [scrollLeft, setScrollLeft] = useState(0);
+    const xScrollRef = useRef(null)
+    const [isDragging, setIsDragging] = useState(false)
+    const [startX, setStartX] = useState(0)
+    const [scrollLeft, setScrollLeft] = useState(0)
+    const [scrollEnd, setScrollEnd] = useState(0)
 
     useEffect(() => {
         // Disabling horizontal scroll event from touchpad
@@ -49,6 +50,15 @@ const Books = () => {
             e.stopPropagation()
             e.preventDefault()
             }
+
+            const winScroll = xScrollRef.current.scrollLeft
+            const width =
+                xScrollRef.current.scrollWidth -
+                xScrollRef.current.clientWidth
+        
+            const scrolled = (winScroll / width) * 100
+        
+            setScrollEnd(scrolled)
         }
 
         const current = xScrollRef.current
@@ -90,7 +100,7 @@ const Books = () => {
 
     return (
         <div
-            className="overscroll-x-auto overflow-y-hidden flex items-center relative w-full h-screen p z-0 px-20"
+            className="overscroll-x-auto overflow-y-hidden flex items-center relative w-full h-full px-20"
             ref={xScrollRef}
             onWheel={handleScroll}
             onMouseDown={handleMouseDown}
@@ -118,10 +128,9 @@ const Books = () => {
                     </div>
                 )}
             )}
-
             
             {isContact && //Contact Tab
-                <div className="h-full flex fixed top-0 left-0 w-screen backdrop-blur-[2px]">
+                <div className="h-full flex fixed z-20 top-0 left-0 w-screen backdrop-blur-[2px]">
                     <div className="relative flex justify-end items-center w-1/2">
                         <button onClick={() => handleTabClose()} className="w-8 p-1 mr-[14%]">
                             <svg className="" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
@@ -164,6 +173,23 @@ const Books = () => {
 
                 </div>
             }
+
+            <div className="fixed text-lg bottom-8 right-8 z-10">
+                {scrollEnd < 20 && 
+                    <div className="flex items-center mb-1">
+                        <p>Scroll or Drag Sideways</p>  
+                        <div className="flex justify-center items-center ml-3">
+                            <svg className="direction-arrow ml-4" fill="currentColor" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512"><path d="M502.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-128-128c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L402.7 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l370.7 0-73.4 73.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l128-128z"/></svg>
+                        </div>    
+                    </div>
+                }
+
+                {/* Scroll progress bar */}
+                <div className="w-60 h-[1.3px] bg-zinc-300">
+                    <div style={{ width: `${scrollEnd}%` }} className="h-full bg-black">
+                    </div>
+                </div>
+            </div>
         </div>
     )
 }

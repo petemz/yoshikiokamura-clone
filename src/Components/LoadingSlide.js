@@ -8,8 +8,8 @@ const LoadingSlide = () => {
     }, [])
 
     return (
-        <div style={{  }} className='flex justify-center transition-all duration-[200ms] items-center px-[10%] bg-white w-screen h-screen fixed top-0 z-[1000]'>
-            <div className='w-full flex h-[1px] bg-zinc-100'>
+        <div className='flex justify-center items-center transition-all duration-[200ms] px-[10%] bg-white w-screen h-screen fixed top-0 z-[1000]'>
+            <div className='w-full flex h-[0.02cm] bg-zinc-100'>
                 <div
                     style={{ width: width }}
                     className="transition-all duration-[1000ms] bg-black"
